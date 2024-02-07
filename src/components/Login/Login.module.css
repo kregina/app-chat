@@ -11,6 +11,7 @@
 
 .content {
   margin-top: 2rem;
+  width: 100dvw;
   max-width: 300px;
 }
 
@@ -45,7 +46,7 @@
   background-color: var(--color-primary);
   color: var(--text-color);
   cursor: pointer;
-  transition: background 300ms ease-in-out;
+  transition: background-color 300ms ease-in-out;
   padding: calc(var(--padding) / 1.5) var(--padding);
   display: flex;
   align-items: center;

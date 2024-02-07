@@ -23,8 +23,12 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@utils/*": ["./src/utils/*"],
+      "@store/*": ["./src/store/*"],
     }
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "cypress/**/*.ts",
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

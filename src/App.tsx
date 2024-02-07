@@ -5,13 +5,14 @@ import { Suspense, lazy, useEffect } from 'react';
 
 import { useTheme } from '@components/Theme/useTheme';
 import { ThemeSwitcher } from '@components/ThemeSwitcher';
+import { AuthProvider } from '@store/auth';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const Home = lazy(() => import('./pages/Home/Home'));
 const Lobby = lazy(() => import('./pages/Lobby'));
 const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 
-const App = () => {
+const App = () => {  
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -19,18 +20,20 @@ const App = () => {
   }, [theme]);
 
   return (
-    <div className={theme}>
-      <ThemeSwitcher />
-      <BrowserRouter>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/lobby" element={<Lobby />} />
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </div>
+    <AuthProvider>
+      <div className={theme}>
+        <ThemeSwitcher />
+        <BrowserRouter>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/lobby" element={<Lobby />} />
+              <Route path="*" element={<ErrorPage />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </div>
+    </AuthProvider>
   );
 };
 

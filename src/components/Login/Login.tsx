@@ -1,38 +1,35 @@
-import { MouseEvent, useState } from 'react';
+import { useState } from 'react';
 
 import { useTheme } from '@components/Theme/useTheme';
-import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useNavigate } from 'react-router-dom';
+import { useAuthWithGoogle } from '@store/auth';
 
+import { Input } from './Input';
 import styles from './Login.module.css';
+import { LoginButton } from './LoginButton';
 
 export const Login = () => {
   const { theme } = useTheme();
+  const authWithGoogle = useAuthWithGoogle();
 
-  const navigate = useNavigate();
-  const [username, setUsername] = useState<string>("");
-  const [isUserNameValid, setIsUsernameValid] = useState<boolean>(false);
-  const [message, setMessage] = useState<string>("");
+  const [username, setUsername] = useState('');
+  const [isUsernameValid, setIsUsernameValid] = useState(false);
+  const [message, setMessage] = useState('');
 
-  const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const currentUsername = event.target.value.trim();
-    setUsername(currentUsername);
-    
-    if(currentUsername.length >= 3) {
+  const handleUsernameChange = (username: string) => {
+    setUsername(username);
+    if (username.length >= 3) {
       setIsUsernameValid(true);
-      setMessage(` (You are good to go ${currentUsername}!😉)`);
+      setMessage(` (You are good to go ${username}!😉)`);
     } else {
       setIsUsernameValid(false);
-      setMessage(" (Oops! at least 3 characters.😅)");
+      setMessage(' (Oops! at least 3 characters.😅)');
     }
   };
 
-  
-  const handleEnter = ( event: MouseEvent<HTMLButtonElement>) => {
+  const handleEnter = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    if(isUserNameValid && username) {
-      navigate('/lobby');
+    if (isUsernameValid && username) {
+      authWithGoogle({ username, theme });
     }
   };
 
@@ -40,33 +37,18 @@ export const Login = () => {
     <div className={`${styles.container} ${theme}`}>
       <div className={styles.content}>
         <h1 className={styles.h1}>Step right up!</h1>
-        <p>Welcome to <strong>The Lobby&trade;</strong>, 
-          where the chat never stops and your next adventure is just a username away!</p>
+        <p>
+          Welcome to <strong>The Lobby&trade;</strong>, 
+          where the chat never stops and your next adventure is just a username away!
+        </p>
 
         <form className={styles.form}>
-          <label htmlFor="username">
-            <input
-              type="text" 
-              id="username"
-              autoFocus 
-              onChange={handleInput}
-              autoComplete="off" 
-              value={username}
-              placeholder="Choose a cool username!"
-            />
-            <small>{message}</small>
-          </label>
-
-          <button 
-            className={styles.button}
-            disabled={!isUserNameValid} 
-            onClick={handleEnter}>
-            <span>Enter</span>
-            <FontAwesomeIcon 
-              icon={faArrowRightLong} 
-              className={styles.icon} 
-            />
-          </button>       
+          <Input 
+            username={username} 
+            onUsernameChange={handleUsernameChange} 
+            message={message} />
+            
+          <LoginButton isEnabled={isUsernameValid} onClick={handleEnter} />
         </form>
       </div>
     </div>
