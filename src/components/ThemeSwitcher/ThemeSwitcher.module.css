@@ -1,0 +1,29 @@
+.button {
+  --rt-color-dark: var(--text-color);
+  --rt-color-white: var(--background-color);
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: var(--font-size);
+  right: var(--font-size);
+}
+
+.icon {
+  animation: spin 3s linear infinite;
+  display: inline-block;
+  font-size: calc(var(--font-size) * 2);
+}
+
+@keyframes spin {
+  0%, 20% { 
+    transform: rotate(0deg);
+  }
+  20%, 40% {
+      transform: rotate(45deg);
+  }
+  40%, 100% {
+      transform: rotate(0deg);
+  }
+}

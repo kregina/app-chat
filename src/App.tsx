@@ -1,28 +1,23 @@
+import '@components/Theme/global.css';
+import '@components/Theme/dark.css';
+import '@components/Theme/light.css';
+import { useEffect } from 'react';
+
+import { useTheme } from "@components/Theme/useTheme";
+import ThemeSwitcher from "@components/ThemeSwitcher/ThemeSwitcher";
+
 function App() {
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   return (
-    <div>
-      <h1>App light</h1>
-      <ul className="light">
-        <li>Text</li>
-        <li className="box primary">primary</li>
-        <li className="box secondary">secondary</li>
-        <li className="box tertiary">tertiary</li>
-        <li className="box success">success</li>
-        <li className="box danger">danger</li>
-      </ul>
-
-      <h1>App dark</h1>
-      <ul className="dark">
-        <li>Text</li>
-        <li className="box primary">primary</li>
-        <li className="box secondary">secondary</li>
-        <li className="box tertiary">tertiary</li>
-        <li className="box success">success</li>
-        <li className="box danger">danger</li>
-      </ul>
+    <div className={theme}>
+      <ThemeSwitcher />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

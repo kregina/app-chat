@@ -1,0 +1,10 @@
+.light {
+  --color-primary: #EADDFF;
+  --color-secondary: #E8DEF8;
+  --color-tertiary: #FFD8E4;
+  --color-success: #c4eed0;
+  --color-danger: #F9DEDC;
+
+  --background-color: #FEF7FF;
+  --text-color: #1D1B20;
+}

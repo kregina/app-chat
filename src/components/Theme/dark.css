@@ -1,0 +1,10 @@
+.dark {
+  --color-primary: #6750A4;  
+  --color-secondary: #625B71;
+  --color-tertiary: #7D5260;
+  --color-success: #0f5222;
+  --color-danger: #7c0415;
+
+  --background-color: #1D1B20;
+  --text-color: #FEF7FF;
+}
