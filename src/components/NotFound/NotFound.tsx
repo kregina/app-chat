@@ -5,7 +5,7 @@ import { Tooltip } from 'react-tooltip';
 
 import styles from './NotFound.module.css';
 
-export function NotFound() {
+export const NotFound = () => {
   const navigate = useNavigate();
 
   const goToHome = () => {
@@ -33,9 +33,9 @@ export function NotFound() {
           aria-label="Go back to the home page"
         >
           <Tooltip id="go-home-tooltip" />
-          <FontAwesomeIcon icon={faHouseChimney} />
+          Go home <FontAwesomeIcon icon={faHouseChimney} />
         </button>
       </div>
     </div>
   );
-}
+};

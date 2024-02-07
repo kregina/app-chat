@@ -1,10 +1,10 @@
 import { useTheme } from "@components/Theme/useTheme";
-import { Theme } from "@utils/enuns";
+import { Theme } from "@utils/enums";
 import { Tooltip } from "react-tooltip";
 
 import styles from "./ThemeSwitcher.module.css";
 
-const ThemeSwitcher = () => {
+export const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
 
   const label = theme === Theme.Light ? "Switch to dark mode" : "Switch to light mode";
@@ -24,4 +24,3 @@ const ThemeSwitcher = () => {
   );
 };
 
-export default ThemeSwitcher;

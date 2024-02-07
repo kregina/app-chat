@@ -1,7 +1,7 @@
 .light {
-  --color-primary: #6750A4;
-  --color-primary-hover: #21005D;
+  --color-primary: #D0BCFF;
   --color-secondary: #E8DEF8;
+  --on-color-secondary: #1D192B;
   --color-tertiary: #FFD8E4;
   --color-success: #c4eed0;
   --color-danger: #F9DEDC;

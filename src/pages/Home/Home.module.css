@@ -1,0 +1,15 @@
+.container {
+  height: 100dvh;
+  background-image: url('../../assets/background-mobile.svg');
+  background-repeat: no-repeat;
+  background-position: top left;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+@media (min-width: 768px) {
+  .container {
+    background-image: url('../../assets/background-desktop.svg');
+    background-size: cover;
+  }
+}

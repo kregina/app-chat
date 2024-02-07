@@ -27,13 +27,13 @@
   border: none;
   border-radius: var(--border-radius);
   background-color: var(--color-primary);
-  color: var(--on-color-primary);
+  color: var(--text-color);
   cursor: pointer;
   transition: background 300ms ease-in-out;
   padding: calc(var(--padding) / 1.5) var(--padding);
   margin-top: var(--margin);
 
   &:hover {
-    background-color: var(--color-primary-hover);
+    opacity: 0.8;
   }
 }

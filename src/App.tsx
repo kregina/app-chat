@@ -3,15 +3,15 @@ import '@components/Theme/dark.css';
 import '@components/Theme/light.css';
 import { Suspense, lazy, useEffect } from 'react';
 
-import { useTheme } from "@components/Theme/useTheme";
-import ThemeSwitcher from "@components/ThemeSwitcher/ThemeSwitcher";
+import { useTheme } from '@components/Theme/useTheme';
+import { ThemeSwitcher } from '@components/ThemeSwitcher';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-const Home = lazy(() => import('./pages/Home'));
+const Home = lazy(() => import('./pages/Home/Home'));
 const Lobby = lazy(() => import('./pages/Lobby'));
 const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 
-function App() {
+const App = () => {
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -32,6 +32,6 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
