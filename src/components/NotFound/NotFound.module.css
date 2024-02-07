@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  padding: 0 var(--padding);
+  text-align: center;
+}
+
+.title {
+  font-size: calc(var(--font-size) * 6);
+  font-weight: var(--font-weight-bold);
+}
+
+.meme {
+  font-size: calc(var(--font-size) * 2);
+  margin-bottom: var(--margin);
+}
+
+.goback {
+  margin-top: var(--margin);
+  text-align: center;
+}
+
+.button {
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--color-primary);
+  color: var(--on-color-primary);
+  cursor: pointer;
+  transition: background 300ms ease-in-out;
+  padding: calc(var(--padding) / 1.5) var(--padding);
+  margin-top: var(--margin);
+
+  &:hover {
+    background-color: var(--color-primary-hover);
+  }
+}

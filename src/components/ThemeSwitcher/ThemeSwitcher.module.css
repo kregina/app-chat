@@ -1,7 +1,4 @@
 .button {
-  --rt-color-dark: var(--text-color);
-  --rt-color-white: var(--background-color);
-
   background-color: transparent;
   border: none;
   cursor: pointer;

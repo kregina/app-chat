@@ -7,15 +7,16 @@ import styles from "./ThemeSwitcher.module.css";
 const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
 
+  const label = theme === Theme.Light ? "Switch to dark mode" : "Switch to light mode";
+
   return (
     <button 
       className={styles.button}
       onClick={toggleTheme}
       data-cy="theme-switcher"
+      aria-label={label}
       data-tooltip-id="theme-switcher-tooltip"
-      data-tooltip-content={
-        theme === Theme.Light ? 'Switch to dark mode' : 'Switch to light mode'
-      }
+      data-tooltip-content={label}
     >
       <Tooltip id="theme-switcher-tooltip" />
       <span className={styles.icon}>{theme === Theme.Light ? '🌚' : '🌞'}</span>

@@ -5,7 +5,7 @@ describe('ThemeSwitcher', () => {
     cy.visit('http://localhost:3000');
   });
 
-  it('toggles the theme', () => {
+  it('Toggles the theme (light/dark)', () => {
     cy.get('body').then(($body) => {
       const initialTheme = $body.hasClass('light') ? 'light' : 'dark';
 
