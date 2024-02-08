@@ -16,14 +16,19 @@ export const Navigation: FC = () => {
     <nav className={styles.navigation}>
       <ul className={styles.list}>
         <li>
-          <Avatar username={state.username} size="large" />
+          <Avatar
+            username={state.username}
+            size="large"
+            status={state.status}
+          />
         </li>
         <li
+          className={styles.link}
           data-tooltip-id="logout-tooltip"
           data-tooltip-content="Leave The Lobby"
         >
           <Tooltip id="logout-tooltip" />
-          <Link to="/" aria-label="Logout" className={styles.link}>
+          <Link to="/" aria-label="Logout">
             <FontAwesomeIcon icon={faDoorOpen} />
           </Link>
         </li>

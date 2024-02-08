@@ -1,35 +1,45 @@
 @import '../Theme/breakpoints.css';
 
-.navigation {
-  padding: var(--padding);
-}
-
 .list {
   list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  li {
+    padding: var(--padding);
+  }
 }
 
 .link {
-  color: var(--color-link);
   transition: color .3s ease-in-out;
-  font-size: calc(var(--font-size) * 1.5);
 
   &:hover {
     opacity: var(--opacity);
   }
 
+  a {
+    font-size: calc(var(--font-size) * 1.5);
+    color: var(--color-tertiary);
+  }
 }
 
 @media (--medium-viewport) {
   .navigation {
     display: flex;
     justify-content: center;
-    padding: var(--padding);
   }
 
   .list {
     flex-direction: column;
+  }
+  
+  .link {
+    background-color: var(--color-tertiary);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+
+    a {
+      color: var(--on-color-tertiary);
+    }
   }
 }

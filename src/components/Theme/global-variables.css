@@ -5,7 +5,10 @@
   --color-on-surface-variant: #2d2f31;
   --color-outline: #79747E;
   --color-outline-variant: #CAC4D0;
-  --color-link: #7D5260;
+
+  --color-success: #4CAF50;
+  --color-danger: #F44336;
+  --color-warning: #FFC107;
   
   --font-size: 1rem;
   --font-weight-light: 300;

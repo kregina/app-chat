@@ -1,14 +1,15 @@
 import { Dispatch, FC, ReactNode, createContext, useReducer } from 'react';
 
 import { UserAction } from '@store/actions/user';
+import { UserStatusEnum } from '@store/enums';
 import userReducer from '@store/reducers/user';
 import { UserState } from '@store/types';
 
 const initialState: UserState = {
+  id: 0,
   username: '',
   theme: 'light',
-  status: 'offline',
-  avatar: '',
+  status: UserStatusEnum.AVAILABLE,
   isOnline: false,
   lastSeenAt: new Date().toISOString(),
 };

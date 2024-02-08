@@ -2,9 +2,8 @@
   --color-primary: #21005D;  
   --color-secondary: #4A4458;
   --on-color-secondary: #E8DEF8;
-  --color-tertiary: #31111D;
-  --color-success: #0f5222;
-  --color-danger: #7c0415;
+  --color-tertiary: #efb8c8;
+  --on-color-tertiary: #492432;
 
   --color-background: var(--color-on-surface);
   --color-background-variant: var(--color-on-surface-variant);

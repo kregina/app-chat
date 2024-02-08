@@ -11,5 +11,8 @@
   .container {
     padding: var(--padding);
     flex-direction: column;
+    width: 16dvw;
+    max-width: 400px;
+    border-radius: 0 2rem 2rem 0;
   }
 }
