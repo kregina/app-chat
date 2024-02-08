@@ -1,6 +1,6 @@
 .container {
-  background: var(--background-color);
-  color: var(--text-color);
+  background: var(--color-background);
+  color: var(--color-text);
   width: 65dvw;
   height: 100dvh;
   display: flex;
@@ -33,7 +33,7 @@
 
   input {
     padding: calc(var(--padding) / 1.5) var(--padding);
-    border: solid 1px var(--text-color);
+    border: solid 1px var(--color-text);
     border-radius: var(--border-radius);
     background: var(--color-secondary);
     color: var(--on-color-secondary);
@@ -44,7 +44,7 @@
   border: none;
   border-radius: var(--border-radius);
   background-color: var(--color-primary);
-  color: var(--text-color);
+  color: var(--color-text);
   cursor: pointer;
   transition: background-color 300ms ease-in-out;
   padding: calc(var(--padding) / 1.5) var(--padding);

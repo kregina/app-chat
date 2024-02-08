@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;600&display=swap');
 
 :root {
+  --color-surface: #FEF7FF;
+  --color-on-surface: #1D1B20;
+  --color-surface-variant: #E7E0EC;
+  --color-on-surface-variant: #49454F;
   
-  --rt-color-dark: var(--text-color);
-  --rt-color-white: var(--background-color);
+  --rt-color-dark: var(--color-text);
+  --rt-color-white: var(--color-background);
 
   --font-size: 1rem;
   --font-weight-light: 300;
@@ -24,11 +28,11 @@
 }
 
 body {
-  --rt-color-dark: var(--text-color);
-  --rt-color-white: var(--background-color);
+  --rt-color-dark: var(--color-text);
+  --rt-color-white: var(--color-background);
   
-  color: var(--text-color);
-  background-color: var(--background-color);
+  color: var(--color-text);
+  background-color: var(--color-background);
   transition: all 300ms;
   height: 100dvh;
   font-size: var(--font-size);

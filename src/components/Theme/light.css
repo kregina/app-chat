@@ -6,6 +6,8 @@
   --color-success: #c4eed0;
   --color-danger: #F9DEDC;
 
-  --background-color: #FEF7FF;
-  --text-color: #1D1B20;
+  --color-background: var(--color-surface);
+  --color-background-variant: var(--color-surface-variant);
+  --color-text: var(--color-on-surface);
+  --color-text-variant: var(--color-on-surface-variant);
 }
