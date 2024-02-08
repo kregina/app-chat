@@ -5,7 +5,7 @@ import styles from './Input.module.css';
 interface InputProps {
   value: string;
   onValueChange: (value: string) => void;
-  message: string;
+  message?: string;
   placeholder: string;
   id: string;
 }

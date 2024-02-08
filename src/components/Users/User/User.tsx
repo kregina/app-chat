@@ -21,6 +21,7 @@ export const User:FC<UserProps> = ({ user }) => {
         username={username}
         size={isMobile ? 'small' : 'medium'}
         status={user.status}
+        isOnline={user.isOnline}
       />
 
       {!isMobile && (

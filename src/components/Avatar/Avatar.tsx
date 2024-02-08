@@ -8,15 +8,16 @@ interface AvatarProps {
   username: string;
   size: 'small' | 'medium' | 'large';
   status: UserStatusEnum
+  isOnline?: boolean;
 }
 
-export const Avatar: FC<AvatarProps> = ({ username, size, status }) => {
+export const Avatar: FC<AvatarProps> = ({ username, size, status, isOnline }) => {
   return (
     <div
       className={`
         ${styles.avatar} 
         ${styles[size]}
-        ${styles[status]}
+        ${isOnline ? styles[status] : ''}
       `}
     >
       <img

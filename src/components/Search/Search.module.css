@@ -1,0 +1,12 @@
+@import '../Theme/breakpoints.css';
+
+.container {
+  display: none;
+  width: 100%;
+}
+
+@media (--medium-viewport) {
+  .container {
+    display: block;
+  }
+}

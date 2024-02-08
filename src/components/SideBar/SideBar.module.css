@@ -8,6 +8,15 @@
   width: 100dvw;
 }
 
+.content {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.title {
+  margin-right: var(--margin);
+}
+
 @media (--medium-viewport) {
   .container {
     padding: var(--padding);
@@ -18,6 +27,9 @@
     max-width: 400px;
     border-radius: 0 2rem 2rem 0;
     height: 100dvh;
-    overflow-y: auto;
+  }
+
+  .title {
+    margin-bottom: var(--margin);
   }
 }

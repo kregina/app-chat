@@ -18,11 +18,12 @@
   & + .title {
     border-top: solid 1px var(--color-outline-variant);
     padding-top: var(--padding);
+    margin-top: var(--margin);
   }
 }
 
 .title {
-  margin: var(--margin) 0;
+  margin-bottom: var(--margin);
   width: 100%;  
 
   small {

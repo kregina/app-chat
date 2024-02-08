@@ -4,12 +4,14 @@ import { Avatar } from '@components/Avatar';
 import { Tooltip } from '@components/StyledTooltip';
 import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { UserState } from '@store/types';
+import { useUser } from '@store/hooks';
 import { Link } from 'react-router-dom';
 
 import styles from './Navigation.module.css';
 
-export const Navigation: FC<{user: UserState}> = ({ user }) => {
+export const Navigation: FC = () => {
+  const { state } = useUser();
+  const user = state;
 
   return (
     <nav className={styles.navigation}>
@@ -25,6 +27,7 @@ export const Navigation: FC<{user: UserState}> = ({ user }) => {
               username={user.username}
               size="large"
               status={user.status}
+              isOnline={user.isOnline}
             />
             <span
               data-tooltip-id="username-tooltip"
