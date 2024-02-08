@@ -1,32 +1,12 @@
+import { FC } from 'react';
+
 import { UsersList } from '@components/Users';
-import { UserStatusEnum } from '@store/enums';
 import { UserState } from '@store/types';
 import { useIsMobile } from '@utils/hooks';
 
 import styles from './SideBar.module.css';
 
-const users: UserState[] = [
-  { id: 1,
-    username: 'Alice',
-    isOnline: true,
-    lastSeenAt: '2021-07-01T12:00:00Z',
-    status: UserStatusEnum.AVAILABLE
-  },
-  { id: 2,
-    username: 'Bob',
-    isOnline: false,
-    lastSeenAt: '2021-07-01T12:00:00Z',
-    status: UserStatusEnum.AWAY
-  },
-  { id: 3,
-    username: 'Charlie',
-    isOnline: true,
-    lastSeenAt: '2021-07-01T12:00:00Z',
-    status: UserStatusEnum.BUSY
-  },
-];
-
-export const SideBar = () => {
+export const SideBar:FC<{users: UserState[]}> = ({ users }) => {
   const isMobile = useIsMobile();
 
   const onlineUsers = users.filter((user) => user.isOnline);

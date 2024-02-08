@@ -25,14 +25,9 @@
 }
 
 @media (--medium-viewport) {
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   .list {
     flex-direction: column;
+    align-items: flex-start;
 
     li {
       margin-left: 0;

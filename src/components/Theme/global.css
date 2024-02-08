@@ -22,3 +22,24 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* Customizes the scrollbar track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Customizes the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-outline);
+  border-radius: 10px; 
+  border: 0; 
+}
+
+::-webkit-scrollbar {
+  width: 5px; 
+  height: 5px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  opacity: var(--opacity);
+}

@@ -1,0 +1,19 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+  small {
+    display: block;
+    height: 1rem;
+    font-size: .8rem;
+  }
+}
+
+.input {
+  padding: calc(var(--padding) / 1.5) var(--padding);
+  border: solid 1px var(--color-text);
+  border-radius: var(--border-radius);
+  background: var(--color-secondary);
+  color: var(--on-color-secondary);
+}

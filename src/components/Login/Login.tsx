@@ -1,13 +1,13 @@
 import { FC, useState } from 'react';
 
+import { Button } from '@components/Form/Button';
+import { Input } from '@components/Form/Input';
 import { useTheme } from '@components/Theme/useTheme';
 import { UserActionsEnum } from '@store/enums';
 import { useUser } from '@store/hooks';
 import { useNavigate } from 'react-router-dom';
 
-import { Input } from './Input';
 import styles from './Login.module.css';
-import { LoginButton } from './LoginButton';
 
 export const Login: FC = () => {
   const { theme } = useTheme();
@@ -47,10 +47,11 @@ export const Login: FC = () => {
   return (
     <div className={`${styles.container} ${theme}`}>
       <div className={styles.content}>
-        <h1 className={styles.h1}>Step right up!</h1>
+        <h4>Welcome to</h4>
+        <h1 className={styles.h1}><strong>The Lobby&trade;</strong></h1>
         <p>
-          Welcome to <strong>The Lobby&trade;</strong>,
-          where the chat never stops and your next adventure is just a username away!
+        Step right up!
+        where the chat never stops and your next adventure is just a username away!
         </p>
 
         <form className={styles.form}>
@@ -59,7 +60,7 @@ export const Login: FC = () => {
             onUsernameChange={handleUsernameChange}
             message={message} />
 
-          <LoginButton isEnabled={isUsernameValid} onClick={handleEnter} />
+          <Button isEnabled={isUsernameValid} onClick={handleEnter} />
         </form>
       </div>
     </div>

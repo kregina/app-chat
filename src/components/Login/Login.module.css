@@ -24,75 +24,12 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: .5rem;
   margin-top: calc(var(--margin) * 2);
-
-  label {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-  }
-
-  input {
-    padding: calc(var(--padding) / 1.5) var(--padding);
-    border: solid 1px var(--color-text);
-    border-radius: var(--border-radius);
-    background: var(--color-secondary);
-    color: var(--on-color-secondary);
-  }
-}
-
-.button {
-  border: none;
-  border-radius: var(--border-radius);
-  background-color: var(--color-primary);
-  color: var(--color-text);
-  cursor: pointer;
-  transition: background-color 300ms ease-in-out;
-  padding: calc(var(--padding) / 1.5) var(--padding);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity .3s ease-in-out;
-
-  &:hover:not(:disabled) {
-    opacity: var(--opacity);
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    background-color: var(--color-outline-variant);
-    color: var(--color-outline);
-  }
-
-  &:not(:disabled) {
-    .icon{
-      animation: bounceRight .6s ease-in-out infinite;
-    }
-  }
-}
-
-.icon {
-  margin-left: .5rem;
 }
 
 @media (--medium-viewport) {
   .container {
     width: 50dvw;
-  }
-}
-
-@keyframes bounceRight {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(5px);
-  }
-  50% {
-    transform: translateX(10px);
-  }
-  75% {
-    transform: translateX(5px);
   }
 }

@@ -3,14 +3,14 @@ import { FC, MouseEventHandler } from 'react';
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import styles from './Login.module.css';
+import styles from './Button.module.css';
 
-interface LoginButtonProps {
+interface ButtonProps {
   isEnabled: boolean;
   onClick: MouseEventHandler<HTMLButtonElement>
 }
 
-export const LoginButton: FC<LoginButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   isEnabled,
   onClick,
 }) => (

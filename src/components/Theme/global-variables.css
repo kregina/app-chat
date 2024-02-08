@@ -24,4 +24,6 @@
   --avatar-small-size: 2rem;
   --avatar-medium-size: 2.5rem;
   --avatar-large-size: 3rem;
+
+  --mobile-breakpoint: 28.75rem;
 }

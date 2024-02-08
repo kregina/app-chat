@@ -4,7 +4,7 @@ import { User } from './User';
 import styles from './UsersList.module.css';
 
 export const UsersList = ({ users, title }: { users: UserState[]; title?: string }) => (
-  <div className={styles.container}>
+  <>
     {title &&
       <h4 className={styles.title}>
         {title}
@@ -19,5 +19,5 @@ export const UsersList = ({ users, title }: { users: UserState[]; title?: string
         </li>
       ))}
     </ul>
-  </div>
+  </>
 );
