@@ -1,6 +1,4 @@
-import '@components/Theme/global.css';
-import '@components/Theme/dark.css';
-import '@components/Theme/light.css';
+import '@components/Theme';
 import { FC, Suspense, lazy, useEffect } from 'react';
 
 import { useTheme } from '@components/Theme/useTheme';

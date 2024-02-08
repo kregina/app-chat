@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 
 import { useTheme } from '@components/Theme/useTheme';
 import { UserActionsEnum } from '@store/enums';
@@ -9,7 +9,7 @@ import { Input } from './Input';
 import styles from './Login.module.css';
 import { LoginButton } from './LoginButton';
 
-export const Login = () => {
+export const Login: FC = () => {
   const { theme } = useTheme();
   const { dispatch } = useUser();
   const navigate = useNavigate();

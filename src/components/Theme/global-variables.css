@@ -1,0 +1,15 @@
+:root {
+  --color-surface: #FEF7FF;
+  --color-on-surface: #1D1B20;
+  --color-surface-variant: #E7E0EC;
+  --color-on-surface-variant: #49454F;
+  
+  --font-size: 1rem;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 600;
+  --line-height: 1.2;
+  --border-radius: .5rem;
+  --padding: 1rem;
+  --margin: 1rem;
+}

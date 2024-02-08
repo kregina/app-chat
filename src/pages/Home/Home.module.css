@@ -1,3 +1,5 @@
+@import '../../components/Theme/breakpoints.css';
+
 .container {
   height: 100dvh;
   background-image: url('../../assets/background-mobile.svg');
@@ -7,7 +9,7 @@
   flex-direction: row-reverse;
 }
 
-@media (min-width: 768px) {
+@media (--medium-viewport) {
   .container {
     background-image: url('../../assets/background-desktop.svg');
     background-size: cover;
