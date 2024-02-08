@@ -29,11 +29,11 @@
   background-color: var(--color-primary);
   color: var(--color-text);
   cursor: pointer;
-  transition: background 300ms ease-in-out;
+  transition: background-color 300ms ease-in-out;
   padding: calc(var(--padding) / 1.5) var(--padding);
   margin-top: var(--margin);
 
   &:hover {
-    opacity: 0.8;
+    opacity: var(--opacity);
   }
 }

@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const Home = lazy(() => import('./pages/Home/Home'));
 const Lobby = lazy(() => import('./pages/Lobby/Lobby'));
+const Profile = lazy(() => import('./pages/Profile/Profile'));
 const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 
 const App: FC = () => {  
@@ -26,6 +27,7 @@ const App: FC = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/lobby" element={<Lobby />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="*" element={<ErrorPage />} />
             </Routes>
           </Suspense>

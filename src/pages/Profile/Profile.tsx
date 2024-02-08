@@ -1,9 +1,7 @@
-import { FC } from 'react';
-
-export const Profile: FC = () => {
+export default function Profile () {
   return (
     <div>
       <h1>Profile</h1>
     </div>
   );
-};
+}

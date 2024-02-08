@@ -3,19 +3,32 @@
 .navigation {
   background-color: var(--color-background-variant);
   color: var(--color-text-variant);
-  padding: var(--padding);
+  padding: calc(var(--padding) / 2) var(--padding);
 }
 
 .list {
   list-style: none;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  color: var(--color-link);
+  transition: color .3s ease-in-out;
+  font-size: calc(var(--font-size) * 1.5);
+
+  &:hover {
+    opacity: var(--opacity);
+  }
+
 }
 
 @media (--medium-viewport) {
   .navigation {
     display: flex;
     justify-content: center;
+    padding: var(--padding);
   }
 
   .list {

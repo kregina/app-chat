@@ -1,0 +1,33 @@
+.small {
+  --width: 24px;
+  --height: 24px;
+}
+
+.medium {
+  --width: 30px;
+  --height: 30px;
+}
+
+.large {
+  --width: 50px;
+  --height: 50px;
+}
+
+.avatar {
+  border-radius: 50%;
+  background-color: var(--color-outline-variant);
+  border: solid 2px var(--color-outline);
+  display: inline-block;
+  padding: .2rem;
+  width: var(--width);
+  height: var(--height);
+  transition: opacity .3s ease-in-out;
+
+  img {
+    width: 100%;
+  }
+
+  &:hover {
+    opacity: var(--opacity);
+  }
+}

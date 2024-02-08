@@ -1,8 +1,11 @@
 :root {
-  --color-surface: #FEF7FF;
-  --color-on-surface: #1D1B20;
-  --color-surface-variant: #F5F0F7;
-  --color-on-surface-variant: #49454F;
+  --color-surface: #ffffff;
+  --color-on-surface: #1f1f1f;
+  --color-surface-variant: #f2f6fc;
+  --color-on-surface-variant: #2d2f31;
+  --color-outline: #79747E;
+  --color-outline-variant: #CAC4D0;
+  --color-link: #7D5260;
   
   --font-size: 1rem;
   --font-weight-light: 300;
@@ -13,4 +16,5 @@
   --padding: 1rem;
   --margin: 1rem;
   --max-width: 2100px;
+  --opacity: .8;
 }

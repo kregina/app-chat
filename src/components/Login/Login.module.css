@@ -55,12 +55,12 @@
   justify-content: center;
 
   &:hover {
-    opacity: 0.8;
+    opacity: var(--opacity);
   }
 
   &:disabled {
     cursor: not-allowed;
-    opacity: 0.5;
+    opacity: var(--opacity);
   }
 
   &:not(:disabled) {
