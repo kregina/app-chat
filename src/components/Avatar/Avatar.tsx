@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import { UserStatusEnum } from '@store/enums';
 import { Link } from 'react-router-dom';
 
 import styles from './Avatar.module.css';
@@ -7,12 +8,16 @@ import styles from './Avatar.module.css';
 interface AvatarProps {
   username: string;
   size: 'small' | 'medium' | 'large';
+  status: UserStatusEnum
 }
 
 export const Avatar: FC<AvatarProps> = ({ username, size }) => {
   
   return (
-    <Link to="/profile" className={`${styles.avatar} ${styles[size]}`}>
+    <Link 
+      to="/profile" 
+      className={`${styles.avatar} ${styles[size]}`}
+    >
       <img 
         src={`https://robohash.org/${username}?set=set4`} alt={`${username} avatar`}
       />

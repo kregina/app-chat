@@ -17,7 +17,11 @@ export const User:FC<UserProps> = ({ user }) => {
 
   return (
     <div className={styles.container}>
-      <Avatar username={username} size={isMobile ? 'small' : 'medium'} />
+      <Avatar 
+        username={username} 
+        size={isMobile ? 'small' : 'medium'} 
+        status={user.status}
+      />
 
       {!isMobile && (
         <div className={styles.info}>

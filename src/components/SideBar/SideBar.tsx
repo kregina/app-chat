@@ -1,4 +1,5 @@
 import { UsersList } from '@components/Users';
+import { UserStatusEnum } from '@store/enums';
 import { UserState } from '@store/types';
 import { useIsMobile } from '@utils/hooks';
 
@@ -9,19 +10,19 @@ const users: UserState[] = [
     username: 'Alice', 
     isOnline: true, 
     lastSeenAt: '2021-07-01T12:00:00Z',
-    status: 'Available'
+    status: UserStatusEnum.AVAILABLE
   },
   { id: 2, 
     username: 'Bob', 
     isOnline: false, 
     lastSeenAt: '2021-07-01T12:00:00Z',
-    status: 'Busy'
+    status: UserStatusEnum.AWAY
   },
   { id: 3,
     username: 'Charlie',
     isOnline: true,
     lastSeenAt: '2021-07-01T12:00:00Z',
-    status: 'Away'
+    status: UserStatusEnum.BUSY
   },
 ];
 
