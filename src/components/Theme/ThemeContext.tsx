@@ -1,10 +1,10 @@
-import { 
-  createContext, 
-  useState, 
-  useEffect, 
-  useMemo, 
+import {
+  createContext,
+  useState,
+  useEffect,
+  useMemo,
   useCallback,
-  ReactNode 
+  ReactNode
 } from 'react';
 
 import { Theme } from '@store/enums';
@@ -20,7 +20,7 @@ const PREFERS_COLOR_SCHEME_DARK = '(prefers-color-scheme: dark)';
 export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const getSystemThemePreference = (): Theme =>
-  window.matchMedia && 
+  window.matchMedia &&
   window.matchMedia(PREFERS_COLOR_SCHEME_DARK).matches ? Theme.Dark : Theme.Light;
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
@@ -28,7 +28,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(PREFERS_COLOR_SCHEME_DARK);
-    const handleChange = (event: MediaQueryListEvent) => 
+    const handleChange = (event: MediaQueryListEvent) =>
       setTheme(event.matches ? Theme.Dark : Theme.Light);
 
     mediaQuery.addEventListener('change', handleChange);
@@ -37,7 +37,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   const toggleTheme = useCallback(() => {
     const newTheme = theme === Theme.Light ? Theme.Dark : Theme.Light;
-    
+
     setTheme(newTheme);
   }, [theme]);
 

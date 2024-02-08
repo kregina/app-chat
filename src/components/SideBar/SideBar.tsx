@@ -6,15 +6,15 @@ import { useIsMobile } from '@utils/hooks';
 import styles from './SideBar.module.css';
 
 const users: UserState[] = [
-  { id: 1, 
-    username: 'Alice', 
-    isOnline: true, 
+  { id: 1,
+    username: 'Alice',
+    isOnline: true,
     lastSeenAt: '2021-07-01T12:00:00Z',
     status: UserStatusEnum.AVAILABLE
   },
-  { id: 2, 
-    username: 'Bob', 
-    isOnline: false, 
+  { id: 2,
+    username: 'Bob',
+    isOnline: false,
     lastSeenAt: '2021-07-01T12:00:00Z',
     status: UserStatusEnum.AWAY
   },

@@ -23,8 +23,8 @@ export const NotFound = () => {
       <div className={styles.goback}>
         <p>Let's get you back on track.</p>
 
-        <button 
-          className={styles.button} 
+        <button
+          className={styles.button}
           onClick={goToHome}
           data-cy="go-home"
           data-tooltip-id="go-home-tooltip"

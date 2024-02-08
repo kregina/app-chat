@@ -11,7 +11,7 @@ const Lobby = lazy(() => import('./pages/Lobby/Lobby'));
 const Profile = lazy(() => import('./pages/Profile/Profile'));
 const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 
-const App: FC = () => {  
+const App: FC = () => {
   const { theme } = useTheme();
 
   useEffect(() => {

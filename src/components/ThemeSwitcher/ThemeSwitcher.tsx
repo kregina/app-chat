@@ -10,7 +10,7 @@ export const ThemeSwitcher = () => {
   const label = theme === Theme.Light ? 'Switch to dark mode' : 'Switch to light mode';
 
   return (
-    <button 
+    <button
       className={styles.button}
       onClick={toggleTheme}
       data-cy="theme-switcher"

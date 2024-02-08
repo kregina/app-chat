@@ -6,7 +6,7 @@ import { useIsMobile } from '@utils/hooks';
 
 import styles from './User.module.css';
 
-interface UserProps  {
+interface UserProps {
   user: UserState;
 }
 
@@ -17,9 +17,9 @@ export const User:FC<UserProps> = ({ user }) => {
 
   return (
     <div className={styles.container}>
-      <Avatar 
-        username={username} 
-        size={isMobile ? 'small' : 'medium'} 
+      <Avatar
+        username={username}
+        size={isMobile ? 'small' : 'medium'}
         status={user.status}
       />
 

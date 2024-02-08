@@ -11,7 +11,7 @@ export default function Lobby() {
     <div className={styles.container}>
       <Navigation />
       <SideBar />
-      <div>        
+      <div>
         <h1>Lobby</h1>
         <p>Hey {state.username}</p>
       </div>

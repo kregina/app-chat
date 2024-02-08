@@ -12,13 +12,13 @@ interface AvatarProps {
 }
 
 export const Avatar: FC<AvatarProps> = ({ username, size }) => {
-  
+
   return (
-    <Link 
-      to="/profile" 
+    <Link
+      to="/profile"
       className={`${styles.avatar} ${styles[size]}`}
     >
-      <img 
+      <img
         src={`https://robohash.org/${username}?set=set4`} alt={`${username} avatar`}
       />
     </Link>

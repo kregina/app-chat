@@ -32,12 +32,12 @@ export const Login: FC = () => {
   const handleEnter = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (isUsernameValid && username) {
-      dispatch({ 
-        type: UserActionsEnum.JOIN, 
-        payload: { 
-          username: username, 
-          avatar: 'avatar_url' 
-        } 
+      dispatch({
+        type: UserActionsEnum.JOIN,
+        payload: {
+          username: username,
+          avatar: 'avatar_url'
+        }
       });
 
       navigate('/lobby');
@@ -49,16 +49,16 @@ export const Login: FC = () => {
       <div className={styles.content}>
         <h1 className={styles.h1}>Step right up!</h1>
         <p>
-          Welcome to <strong>The Lobby&trade;</strong>, 
+          Welcome to <strong>The Lobby&trade;</strong>,
           where the chat never stops and your next adventure is just a username away!
         </p>
 
         <form className={styles.form}>
-          <Input 
-            username={username} 
-            onUsernameChange={handleUsernameChange} 
+          <Input
+            username={username}
+            onUsernameChange={handleUsernameChange}
             message={message} />
-            
+
           <LoginButton isEnabled={isUsernameValid} onClick={handleEnter} />
         </form>
       </div>
