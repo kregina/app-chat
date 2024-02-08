@@ -1,8 +1,8 @@
 export type UserState = {
+  id: number;
   username: string;
-  theme: string;
+  theme?: string;
   status: string;
-  avatar: string;
   isOnline: boolean;
   lastSeenAt: string;
 };

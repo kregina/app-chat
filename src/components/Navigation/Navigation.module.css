@@ -1,9 +1,7 @@
 @import '../Theme/breakpoints.css';
 
 .navigation {
-  background-color: var(--color-background-variant);
-  color: var(--color-text-variant);
-  padding: calc(var(--padding) / 2) var(--padding);
+  padding: var(--padding);
 }
 
 .list {
