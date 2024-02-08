@@ -56,9 +56,12 @@ export const Login: FC = () => {
 
         <form className={styles.form}>
           <Input
-            username={username}
-            onUsernameChange={handleUsernameChange}
-            message={message} />
+            id="username"
+            value={username}
+            onValueChange={handleUsernameChange}
+            message={message}
+            placeholder="Choose a cool username!"
+          />
 
           <Button isEnabled={isUsernameValid} onClick={handleEnter} />
         </form>
