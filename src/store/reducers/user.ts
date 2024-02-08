@@ -1,6 +1,6 @@
-import { UserAction } from "@store/actions/user";
-import { UserActionsEnum } from "@store/enums";
-import { UserState } from "@store/types";
+import { UserAction } from '@store/actions/user';
+import { UserActionsEnum } from '@store/enums';
+import { UserState } from '@store/types';
 
 const userReducer = (state: UserState, action: UserAction): UserState => {
   switch (action.type) {

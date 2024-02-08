@@ -1,9 +1,9 @@
-import { FC, MouseEventHandler } from "react";
+import { FC, MouseEventHandler } from 'react';
 
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import styles from "./Login.module.css";
+import styles from './Login.module.css';
 
 interface LoginButtonProps { 
   isEnabled: boolean; 

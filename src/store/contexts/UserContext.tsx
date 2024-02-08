@@ -1,8 +1,8 @@
-import { Dispatch, FC, ReactNode, createContext, useReducer } from "react";
+import { Dispatch, FC, ReactNode, createContext, useReducer } from 'react';
 
-import { UserAction } from "@store/actions/user";
-import userReducer from "@store/reducers/user";
-import { UserState } from "@store/types";
+import { UserAction } from '@store/actions/user';
+import userReducer from '@store/reducers/user';
+import { UserState } from '@store/types';
 
 const initialState: UserState = {
   username: '',

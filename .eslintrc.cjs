@@ -17,6 +17,7 @@ module.exports = {
     "indent": ["error", 2],
     "object-curly-spacing": ["error", "always"],
     "semi": ["error", "always"],
+    "quotes": ["error", "single"],
     "max-len": ["error", 90, 2, {
       "ignoreUrls": true,
       "ignoreComments": false,

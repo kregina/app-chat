@@ -1,1 +1,3 @@
 postcss.config.cjs
+cypress.config.ts
+commands.ts

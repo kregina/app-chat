@@ -1,7 +1,7 @@
-import { Navigation } from "@components/Navigation";
-import { useUser } from "@store/hooks";
+import { Navigation } from '@components/Navigation';
+import { useUser } from '@store/hooks';
 
-import styles from "./Lobby.module.css";
+import styles from './Lobby.module.css';
 
 export default function Lobby() {
   const { state } = useUser();
