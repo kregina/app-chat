@@ -1,0 +1,29 @@
+@import '../Theme/breakpoints.css';
+
+.title {
+  display: none;
+  padding: var(--padding);
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: calc(100dvh - 12rem);
+}
+
+.content {
+  background-image: url('../../assets/background-desktop-lobby.svg');
+  background-size: cover;
+  padding: var(--padding);
+}
+
+@media (--medium-viewport) {
+  .title {
+    display: block;
+  }
+
+  .container {
+    grid-template-rows: auto 1fr auto;
+    height: 100dvh;
+  }
+}

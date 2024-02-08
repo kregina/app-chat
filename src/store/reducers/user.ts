@@ -8,7 +8,6 @@ const userReducer = (state: UserState, action: UserAction): UserState => {
     return {
       ...state,
       username: action.payload.username,
-      avatar: action.payload.avatar,
       isOnline: true,
       lastSeenAt: new Date().toISOString(),
     };
