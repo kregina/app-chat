@@ -1,13 +1,4 @@
-.container {
-  display: flex;
-  padding: calc(var(--padding) / 2) var(--padding);
-  background-color: var(--color-background-variant);
-  color: var(--color-text-variant);
-
-  h1, h2 {
-    display: none;
-  }
-}
+@import '../Theme/breakpoints.css';
 
 .list {
   display: flex;
@@ -20,6 +11,16 @@
     margin-left: calc(-1 * var(--avatar-small-size) / 2);
 
     &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (--medium-viewport) {
+  .list {
+    flex-direction: column;
+
+    li {
       margin-left: 0;
     }
   }

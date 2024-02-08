@@ -18,7 +18,7 @@
   --max-width: 2100px;
   --opacity: .8;
 
-  --avatar-small-size: 32px;
-  --avatar-medium-size: 48px;
-  --avatar-large-size: 50px;
+  --avatar-small-size: 2rem;
+  --avatar-medium-size: 2.5rem;
+  --avatar-large-size: 3rem;
 }

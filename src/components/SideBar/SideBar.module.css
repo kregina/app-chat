@@ -1,0 +1,15 @@
+@import '../Theme/breakpoints.css';
+
+.container {
+  display: flex;
+  padding: calc(var(--padding) / 2) var(--padding);
+  background-color: var(--color-background-variant);
+  color: var(--color-text-variant);
+}
+
+@media (--medium-viewport) {
+  .container {
+    padding: var(--padding);
+    flex-direction: column;
+  }
+}

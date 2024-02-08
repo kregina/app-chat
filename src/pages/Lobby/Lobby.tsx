@@ -1,5 +1,5 @@
 import { Navigation } from '@components/Navigation';
-import { Users } from '@components/Users';
+import { SideBar } from '@components/SideBar';
 import { useUser } from '@store/hooks';
 
 import styles from './Lobby.module.css';
@@ -10,7 +10,7 @@ export default function Lobby() {
   return (
     <div className={styles.container}>
       <Navigation />
-      <Users />
+      <SideBar />
       <div>        
         <h1>Lobby</h1>
         <p>Hey {state.username}</p>
