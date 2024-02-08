@@ -1,0 +1,7 @@
+.styled_tooltip {
+  --rt-color-dark: var(--color-text);
+  --rt-color-white: var(--color-background);
+
+  font-size: .8rem;
+  padding: .3rem .5rem;
+}

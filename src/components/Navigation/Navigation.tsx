@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
 import { Avatar } from '@components/Avatar';
+import { Tooltip } from '@components/StyledTooltip';
 import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useUser } from '@store/hooks';
 import { Link } from 'react-router-dom';
-import { Tooltip } from 'react-tooltip';
 
 import styles from './Navigation.module.css';
 

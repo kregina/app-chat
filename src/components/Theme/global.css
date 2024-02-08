@@ -9,9 +9,6 @@
 }
 
 body {  
-  --rt-color-dark: var(--color-text);
-  --rt-color-white: var(--color-background);
-  
   color: var(--color-text);
   background-color: var(--color-background);
   transition: all 300ms;
