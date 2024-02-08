@@ -1,17 +1,20 @@
 import { FC } from "react";
 
-import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
+import { faComments } from '@fortawesome/free-regular-svg-icons';
+import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import styles from './Navigation.module.css';
 
 export const Navigation: FC = () => {
   return (
-    <nav>
-      <ul>
+    <nav className={styles.navigation}>
+      <ul className={styles.list}>
         <li>
-          <FontAwesomeIcon icon={faArrowRightLong} />
+          <FontAwesomeIcon icon={faComments} />
         </li>
         <li>
-          <a href="/about">About</a>
+          <FontAwesomeIcon icon={faDoorOpen} />
         </li>
       </ul>
     </nav>

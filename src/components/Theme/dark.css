@@ -7,7 +7,7 @@
   --color-danger: #7c0415;
 
   --color-background: var(--color-on-surface);
-  --color-background-variant: var(--color-surface);
+  --color-background-variant: var(--color-on-surface-variant);
   --color-text: var(--color-surface);
   --color-text-variant: var(--color-surface-variant);
 }

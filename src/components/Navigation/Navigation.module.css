@@ -1,0 +1,24 @@
+@import '../Theme/breakpoints.css';
+
+.navigation {
+  background-color: var(--color-background-variant);
+  color: var(--color-text-variant);
+  padding: var(--padding);
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (--medium-viewport) {
+  .navigation {
+    display: flex;
+    justify-content: center;
+  }
+
+  .list {
+    flex-direction: column;
+  }
+}
