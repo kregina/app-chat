@@ -1,7 +1,9 @@
 import { useState } from 'react';
 
 import { useTheme } from '@components/Theme/useTheme';
-import { useAuthWithGoogle } from '@store/auth';
+import { UserActionsEnum } from '@store/enums';
+import { useUser } from '@store/hooks';
+import { useNavigate } from 'react-router-dom';
 
 import { Input } from './Input';
 import styles from './Login.module.css';
@@ -9,7 +11,8 @@ import { LoginButton } from './LoginButton';
 
 export const Login = () => {
   const { theme } = useTheme();
-  const authWithGoogle = useAuthWithGoogle();
+  const { dispatch } = useUser();
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState('');
   const [isUsernameValid, setIsUsernameValid] = useState(false);
@@ -29,7 +32,15 @@ export const Login = () => {
   const handleEnter = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (isUsernameValid && username) {
-      authWithGoogle({ username, theme });
+      dispatch({ 
+        type: UserActionsEnum.JOIN, 
+        payload: { 
+          username: username, 
+          avatar: 'avatar_url' 
+        } 
+      });
+
+      navigate('/lobby');
     }
   };
 

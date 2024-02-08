@@ -1,18 +1,18 @@
 import '@components/Theme/global.css';
 import '@components/Theme/dark.css';
 import '@components/Theme/light.css';
-import { Suspense, lazy, useEffect } from 'react';
+import { FC, Suspense, lazy, useEffect } from 'react';
 
 import { useTheme } from '@components/Theme/useTheme';
 import { ThemeSwitcher } from '@components/ThemeSwitcher';
-import { AuthProvider } from '@store/auth';
+import { UserProvider } from '@store/contexts';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const Home = lazy(() => import('./pages/Home/Home'));
-const Lobby = lazy(() => import('./pages/Lobby'));
+const Lobby = lazy(() => import('./pages/Lobby/Lobby'));
 const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 
-const App = () => {  
+const App: FC = () => {  
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const App = () => {
   }, [theme]);
 
   return (
-    <AuthProvider>
+    <UserProvider>
       <div className={theme}>
         <ThemeSwitcher />
         <BrowserRouter>
@@ -33,7 +33,7 @@ const App = () => {
           </Suspense>
         </BrowserRouter>
       </div>
-    </AuthProvider>
+    </UserProvider>
   );
 };
 

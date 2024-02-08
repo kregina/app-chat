@@ -1,5 +1,5 @@
 import { useTheme } from "@components/Theme/useTheme";
-import { Theme } from "@utils/enums";
+import { Theme } from "@store/enums";
 import { Tooltip } from "react-tooltip";
 
 import styles from "./ThemeSwitcher.module.css";

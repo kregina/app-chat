@@ -7,7 +7,7 @@ import {
   ReactNode 
 } from 'react';
 
-import { Theme } from '@utils/enums';
+import { Theme } from '@store/enums';
 
 type ThemeContextType = {
   theme: Theme;
