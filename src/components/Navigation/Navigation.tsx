@@ -13,6 +13,8 @@ export const Navigation: FC<{user: UserState}> = ({ user }) => {
 
   return (
     <nav className={styles.navigation}>
+      <Tooltip id="logout-tooltip" />
+
       <ul className={styles.list}>
         <li className={styles.username}>
           <Link
@@ -24,16 +26,20 @@ export const Navigation: FC<{user: UserState}> = ({ user }) => {
               size="large"
               status={user.status}
             />
-            <span>{user.username}</span>
+            <span
+              data-tooltip-id="username-tooltip"
+              data-tooltip-content={user.username}>
+              {user.username.length > 5 && <Tooltip id="username-tooltip" />}
+              {user.username}
+            </span>
           </Link>
         </li>
         <li><h1>The Lobby&trade;</h1></li>
         <li
-          className={styles.logout}
           data-tooltip-id="logout-tooltip"
           data-tooltip-content="Leave The Lobby"
+          className={styles.logout}
         >
-          <Tooltip id="logout-tooltip" />
           <Link to="/" aria-label="Logout" >
             <FontAwesomeIcon icon={faDoorOpen} />
           </Link>

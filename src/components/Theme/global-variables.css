@@ -3,8 +3,6 @@
   --color-on-surface: #1f1f1f;
   --color-surface-variant: #f2f6fc;
   --color-on-surface-variant: #2d2f31;
-  --color-outline: #79747E;
-  --color-outline-variant: #CAC4D0;
 
   --color-success: #4CAF50;
   --color-danger: #F44336;
@@ -24,6 +22,4 @@
   --avatar-small-size: 2rem;
   --avatar-medium-size: 2.5rem;
   --avatar-large-size: 3rem;
-
-  --mobile-breakpoint: 28.75rem;
 }

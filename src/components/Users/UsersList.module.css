@@ -14,10 +14,16 @@
       margin-left: 0;
     }
   }
+  
+  & + .title {
+    border-top: solid 1px var(--color-outline-variant);
+    padding-top: var(--padding);
+  }
 }
 
 .title {
   margin: var(--margin) 0;
+  width: 100%;  
 
   small {
     color: var(--color-outline);
@@ -32,6 +38,10 @@
     li {
       margin-left: 0;
       margin-bottom: var(--margin);
+
+      &:last-child {
+        margin: 0;
+      }
     }
   }
 }

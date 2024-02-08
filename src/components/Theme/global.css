@@ -35,9 +35,14 @@ body {
   border: 0; 
 }
 
-::-webkit-scrollbar {
+*:hover::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar {
   width: 5px; 
-  height: 5px; 
+  transition: width 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {

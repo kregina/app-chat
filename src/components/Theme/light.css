@@ -3,10 +3,13 @@
   --color-secondary: #E8DEF8;
   --on-color-secondary: #1D192B;
   --color-tertiary: #7d5260;
-  --on-color-tertiary: #ffffff;
+  --on-color-tertiary: #efb8c8;
 
   --color-background: var(--color-surface);
   --color-background-variant: var(--color-surface-variant);
   --color-text: var(--color-on-surface);
   --color-text-variant: var(--color-on-surface-variant);
+
+  --color-outline: #79747E;
+  --color-outline-variant: #e1e3e1;
 }
