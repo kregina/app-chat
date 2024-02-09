@@ -20,7 +20,7 @@ jest.mock('./pages/Profile/Profile', () => ({
   default: () => <div>Profile Component</div>,
 }));
 
-jest.mock('./pages/ErrorPage', () => ({
+jest.mock('./pages/Error/Error', () => ({
   __esModule: true,
   default: () => <div>Error Page</div>,
 }));

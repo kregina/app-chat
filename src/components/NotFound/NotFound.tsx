@@ -14,7 +14,7 @@ export const NotFound = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="not-found">
       <h1 className={styles.title}>404</h1>
       <p className={styles.meme}>👁️👄👁️</p>
       <p>Well, this is unexpected...</p>
