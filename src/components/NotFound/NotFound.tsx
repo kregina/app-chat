@@ -32,6 +32,7 @@ export const NotFound = () => {
           data-tooltip-content="Go back to the home page"
           data-tooltip-place="right"
           aria-label="Go back to the home page"
+          data-testid="go-home"
         >
           <Tooltip id="go-home-tooltip" />
           Go home <FontAwesomeIcon icon={faHouseChimney} />
