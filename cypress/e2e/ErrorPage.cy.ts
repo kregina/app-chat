@@ -2,12 +2,12 @@
 
 describe('ErrorPage', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/error');
+    cy.visit('/app-chat/error');
   });
 
   it('Should go to the home page', () => {
     cy.get('[data-cy=go-home]').click();
-    cy.url().should('eq', 'http://localhost:3000/');
+    cy.url().should('eq', 'http://localhost:3000/app-chat');
   });
 });
 

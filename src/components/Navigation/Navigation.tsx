@@ -8,6 +8,7 @@ import { useUser } from '@store/hooks';
 import { Link } from 'react-router-dom';
 
 import styles from './Navigation.module.css';
+import { PATHS } from '../../config/routes/routes';
 
 export const Navigation: FC = () => {
   const { state } = useUser();
@@ -20,7 +21,7 @@ export const Navigation: FC = () => {
       <ul className={styles.list}>
         <li className={styles.username}>
           <Link
-            to="/profile"
+            to={PATHS.PROFILE}
             aria-label="Go to profile"
           >
             <Avatar
@@ -43,7 +44,7 @@ export const Navigation: FC = () => {
           data-tooltip-content="Leave The Lobby"
           className={styles.logout}
         >
-          <Link to="/" aria-label="Logout" >
+          <Link to={PATHS.HOME} aria-label="Logout" >
             <FontAwesomeIcon icon={faDoorOpen} />
           </Link>
         </li>

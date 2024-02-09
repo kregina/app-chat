@@ -8,6 +8,7 @@ import { useUser } from '@store/hooks';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './Login.module.css';
+import { PATHS } from '../../config/routes/routes';
 
 export const Login: FC = () => {
   const { theme } = useTheme();
@@ -40,7 +41,7 @@ export const Login: FC = () => {
         }
       });
 
-      navigate('/lobby');
+      navigate(PATHS.LOBBY);
     }
   };
 
