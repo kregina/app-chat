@@ -1,4 +1,10 @@
 .container {
+  background-image: url('../../assets/background-desktop-lobby.svg');
+  background-size: cover;
+  padding: var(--padding);
+}
+
+.content {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: .5rem;

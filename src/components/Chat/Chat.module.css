@@ -11,12 +11,6 @@
   height: calc(100dvh - 12rem);
 }
 
-.content {
-  background-image: url('../../assets/background-desktop-lobby.svg');
-  background-size: cover;
-  padding: var(--padding);
-}
-
 @media (--medium-viewport) {
   .title {
     display: block;
