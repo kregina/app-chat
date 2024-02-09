@@ -12,7 +12,7 @@ interface SearchProps {
 export const Search:FC<SearchProps> = ({ searchTerm, setSearchTerm }) => {
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="search">
       <Input
         id="search"
         placeholder="Search an user..."

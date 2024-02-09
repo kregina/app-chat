@@ -30,10 +30,12 @@ export const SideBar:FC = () => {
 
       <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
 
-      <div className={styles.content}>
-        {isMobile ? (
+      <div className={styles.content} data-testid="users-list-container">
+        {isMobile && (
           <UsersList users={users} />
-        ) : (
+        )}
+
+        {!isMobile && (
           <>
             <UsersList users={onlineUsers} title="Online" />
             <UsersList users={offlineUsers} title="Offline" />
