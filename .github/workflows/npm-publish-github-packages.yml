@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'yarn'
@@ -36,7 +36,7 @@ jobs:
         run: yarn test     
 
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
           path: ./dist/**/*
@@ -68,7 +68,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download Build Artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifacts
           path: dist
@@ -78,3 +78,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+
+      - name: Output Deployment URL
+        run: echo "${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+  
