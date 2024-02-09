@@ -1,3 +1,4 @@
 postcss.config.cjs
 cypress.config.ts
 commands.ts
+jest.config.cjs
