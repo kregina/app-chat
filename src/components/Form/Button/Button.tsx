@@ -15,11 +15,16 @@ export const Button: FC<ButtonProps> = ({
   onClick,
 }) => (
   <button
+    data-testid="button-login"
     data-cy="button-login"
     className={styles.button}
-    disabled={!isEnabled} onClick={onClick}>
+    disabled={!isEnabled} onClick={onClick}
+  >
     <span>Enter</span>
     <FontAwesomeIcon
-      icon={faArrowRightLong} className={styles.icon} />
+      data-testid="button-icon"
+      icon={faArrowRightLong}
+      className={styles.icon}
+    />
   </button>
 );
