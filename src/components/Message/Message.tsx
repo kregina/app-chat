@@ -7,7 +7,7 @@ export const Message = () => {
   return (
     <div className={styles.container} data-testid="message">
       {dataChat.map((message, index) => (
-        <div key={index} className={styles.content}>
+        <div key={index} className={styles.content} data-testid="message-item">
           <Avatar
             username={message.from_user}
             size="medium"
