@@ -25,7 +25,7 @@ export const SideBar:FC = () => {
   const offlineUsers = users.filter((user: UserState) => !user.isOnline);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="sidebar">
       <h2 className={styles.title}>Users</h2>
 
       <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>

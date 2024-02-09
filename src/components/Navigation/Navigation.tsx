@@ -15,7 +15,7 @@ export const Navigation: FC = () => {
   const user = state;
 
   return (
-    <nav className={styles.navigation}>
+    <nav className={styles.navigation} data-testid="navigation">
       <Tooltip id="logout-tooltip" />
 
       <ul className={styles.list}>

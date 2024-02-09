@@ -7,8 +7,8 @@ import styles from './Lobby.module.css';
 export default function Lobby() {
 
   return (
-    <div className={styles.container}>
-      <Navigation />
+    <div className={styles.container} data-testid="lobby">
+      <Navigation/>
       <SideBar />
       <Chat />
     </div>
