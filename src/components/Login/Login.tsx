@@ -46,7 +46,7 @@ export const Login: FC = () => {
   };
 
   return (
-    <div className={`${styles.container} ${theme}`}>
+    <div className={`${styles.container} ${theme}`} data-testid="login">
       <div className={styles.content}>
         <h4>Welcome to</h4>
         <h1 className={styles.h1}><strong>The Lobby&trade;</strong></h1>
