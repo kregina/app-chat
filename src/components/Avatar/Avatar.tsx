@@ -14,6 +14,7 @@ interface AvatarProps {
 export const Avatar: FC<AvatarProps> = ({ username, size, status, isOnline }) => {
   return (
     <div
+      data-testid="avatar"
       className={`
         ${styles.avatar} 
         ${styles[size]}

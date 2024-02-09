@@ -16,7 +16,7 @@ export const Navigation: FC = () => {
 
   return (
     <nav className={styles.navigation} data-testid="navigation">
-      <Tooltip id="logout-tooltip" />
+      <Tooltip id="logout-tooltip" data-testid="" />
 
       <ul className={styles.list}>
         <li className={styles.username}>
@@ -32,8 +32,14 @@ export const Navigation: FC = () => {
             />
             <span
               data-tooltip-id="username-tooltip"
-              data-tooltip-content={user.username}>
-              {user.username.length > 5 && <Tooltip id="username-tooltip" />}
+              data-tooltip-content={user.username}
+              data-testid="username-tooltip"
+            >
+
+              {user.username.length > 5 &&
+              <Tooltip id="username-tooltip"
+              />}
+
               {user.username}
             </span>
           </Link>
