@@ -15,7 +15,7 @@ export const Message = () => {
 
   useEffect(() => {
     scrollToBottom();
-  }, [dataChat]);
+  }, []);
 
   return (
     <div className={styles.container} data-testid="message">
