@@ -1,3 +1,2 @@
-export { Theme } from './theme';
-export { UserActionsEnum } from './user/actions';
-export { UserStatusEnum } from './user/status';
+export { ThemeEnum } from './themeEnum';
+export { UserActionsEnum, UserStatusEnum } from './userEnum';

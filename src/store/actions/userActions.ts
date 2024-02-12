@@ -1,8 +1,8 @@
 import { UserStatusEnum } from '@store/enums';
 
-import { UserActionsEnum } from '../enums/user/actions';
+import { UserActionsEnum } from '../enums/userEnum';
 
-export type UserAction =
+export type UserActions =
   | { type: UserActionsEnum.JOIN; payload: { username: string; avatar: string } }
   | { type: UserActionsEnum.UPDATE_STATUS; payload: { status: UserStatusEnum } }
   | { type: UserActionsEnum.SET_THEME; payload: { theme: string } }

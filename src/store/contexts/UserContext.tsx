@@ -1,8 +1,8 @@
 import { Dispatch, FC, ReactNode, createContext, useReducer } from 'react';
 
-import { UserAction } from '@store/actions/user';
+import { UserActions } from '@store/actions';
 import { UserStatusEnum } from '@store/enums';
-import userReducer from '@store/reducers/user';
+import { userReducer } from '@store/reducers';
 import { UserState } from '@store/types';
 
 const initialState: UserState = {
@@ -16,7 +16,7 @@ const initialState: UserState = {
 
 export const UserContext = createContext<{
   state: UserState;
-  dispatch: Dispatch<UserAction>;
+  dispatch: Dispatch<UserActions>;
 }>({
   state: initialState,
   dispatch: () => null,
