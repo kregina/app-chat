@@ -10,8 +10,9 @@
 }
 
 .content {
-  display: flex;
-  gap: .5rem;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: auto 1fr;
 
   & + & {
     margin-top: var(--margin);
@@ -28,6 +29,7 @@
   padding: calc(var(--padding) / 2);
   position: relative;
   margin-left: .5rem;
+  justify-self: start;
 
   &:before {
     content: ' ';

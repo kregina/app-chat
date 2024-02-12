@@ -1,5 +1,19 @@
+@import '../Theme/breakpoints.css';
+
 .container {
   padding: var(--padding);
   display: flex;
   gap: var(--padding);
+  position: relative;
+}
+
+em-emoji-picker {
+  position: absolute;
+  bottom: 17dvh;
+}
+
+@media (--medium-viewport) {
+  em-emoji-picker {
+    bottom: 10dvh;
+  }
 }
