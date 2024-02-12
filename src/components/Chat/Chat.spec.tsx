@@ -21,9 +21,11 @@ describe('Chat', () => {
     const { getByTestId, queryByTestId } = render(<Chat />);
     const chatContainer = getByTestId('chat');
     const messageComponent = queryByTestId('message');
+    const footerComponent = queryByTestId('footer');
 
     expect(chatContainer).toBeInTheDocument();
     expect(messageComponent).toBeInTheDocument();
+    expect(footerComponent).toBeInTheDocument();
   });
 
   afterEach(() => {

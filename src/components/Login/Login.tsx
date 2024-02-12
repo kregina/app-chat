@@ -3,6 +3,8 @@ import { FC, useState } from 'react';
 import { Button } from '@components/Form/Button';
 import { Input } from '@components/Form/Input';
 import { useTheme } from '@components/Theme/useTheme';
+import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { UserActionsEnum } from '@store/enums';
 import { useUser } from '@store/hooks';
 import { useNavigate } from 'react-router-dom';
@@ -64,7 +66,14 @@ export const Login: FC = () => {
             placeholder="Choose a cool username!"
           />
 
-          <Button isEnabled={isUsernameValid} onClick={handleEnter} />
+          <Button isEnabled={isUsernameValid} onClick={handleEnter} id="login">
+            <span>Enter</span>
+            <FontAwesomeIcon
+              data-testid="button-icon"
+              icon={faArrowRightLong}
+              className={`${isUsernameValid ? styles.animate : ''} ${styles.icon}`}
+            />
+          </Button>
         </form>
       </div>
     </div>

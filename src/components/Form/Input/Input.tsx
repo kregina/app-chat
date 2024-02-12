@@ -26,6 +26,6 @@ export const Input: FC<InputProps> = (props) => {
         data-cy={`${id}-input`}
         placeholder={placeholder}
       />
-      <small>{message}</small>
+      {message && <small>{message}</small>}
     </label>
   );};

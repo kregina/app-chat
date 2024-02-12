@@ -1,47 +1,36 @@
 import { render, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
 
 import { Button } from './Button';
+import '@testing-library/jest-dom';
 
 describe('Button', () => {
-  it('renders button with correct text and icon', () => {
-    const { getByText, getByTestId } = render(
-      <Button isEnabled={true} onClick={() => {}} />
-    );
-
-    const buttonText = getByText('Enter');
-    expect(buttonText).toBeInTheDocument();
-
-    const buttonIcon = getByTestId('button-icon');
-    expect(buttonIcon).toBeInTheDocument();
-  });
-
-  it('renders button as enabled when isEnabled is true', () => {
-    const { getByTestId } = render(
-      <Button isEnabled={true} onClick={() => {}} />
-    );
-
-    const button = getByTestId('button-login') as HTMLButtonElement;
-    expect(button.disabled).toBe(false);
-  });
-
-  it('renders button as disabled when isEnabled is false', () => {
-    const { getByTestId } = render(
-      <Button isEnabled={false} onClick={() => {}} />
-    );
-
-    const button = getByTestId('button-login') as HTMLButtonElement;
-    expect(button.disabled).toBe(true);
-  });
-
-  it('calls onClick function when clicked', () => {
+  it('renders button with children and click event', () => {
     const handleClick = jest.fn();
+
     const { getByTestId } = render(
-      <Button isEnabled={true} onClick={handleClick} />
+      <Button isEnabled={true} onClick={handleClick} id="test">
+        Click Me
+      </Button>
     );
 
-    const button = getByTestId('button-login');
-    fireEvent.click(button);
+    const buttonElement = getByTestId('button-test');
+
+    expect(buttonElement.textContent).toBe('Click Me');
+
+    fireEvent.click(buttonElement);
+
     expect(handleClick).toHaveBeenCalled();
+  });
+
+  it('renders disabled button when isEnabled is false', () => {
+    const { getByTestId } = render(
+      <Button isEnabled={false} onClick={() => {}} id="test">
+        Click Me
+      </Button>
+    );
+
+    const buttonElement = getByTestId('button-test');
+
+    expect(buttonElement).toBeDisabled();
   });
 });

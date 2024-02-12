@@ -28,8 +28,31 @@
   margin-top: calc(var(--margin) * 2);
 }
 
+.icon {
+  margin-left: .5rem;
+}
+
+.animate {
+  animation: bounceRight .6s ease-in-out infinite;
+}
+
 @media (--medium-viewport) {
   .container {
     width: 50dvw;
+  }
+}
+
+@keyframes bounceRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(5px);
   }
 }
