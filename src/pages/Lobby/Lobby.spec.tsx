@@ -7,6 +7,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Lobby from './Lobby';
 
 describe('Page Lobby', () => {
+  beforeEach(() => {
+    window.HTMLElement.prototype.scrollIntoView = jest.fn();
+  });
+
   it('renders without crashing', () => {
     render(
       <Router>
@@ -25,5 +29,9 @@ describe('Page Lobby', () => {
     expect(screen.getByTestId('navigation')).toBeInTheDocument();
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     expect(screen.getByTestId('chat')).toBeInTheDocument();
+  });
+
+  afterEach(() => {
+    jest.resetAllMocks();
   });
 });

@@ -24,6 +24,10 @@ jest.mock('@store/data', () => ({
 }));
 
 describe('Message', () => {
+  beforeEach(() => {
+    window.HTMLElement.prototype.scrollIntoView = jest.fn();
+  });
+
   it('renders message container with correct elements', () => {
     const { getByTestId, getAllByTestId } = render(<Message />);
 
@@ -42,5 +46,9 @@ describe('Message', () => {
 
     const janeMessage = getByText('Hi John! I\'m doing great, thanks for asking.');
     expect(janeMessage).toBeInTheDocument();
+  });
+
+  afterEach(() => {
+    jest.resetAllMocks();
   });
 });

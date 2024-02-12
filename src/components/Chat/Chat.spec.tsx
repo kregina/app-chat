@@ -4,6 +4,10 @@ import '@testing-library/jest-dom';
 import { Chat } from './Chat';
 
 describe('Chat', () => {
+  beforeEach(() => {
+    window.HTMLElement.prototype.scrollIntoView = jest.fn();
+  });
+
   it('renders chat container with correct title', () => {
     const { getByTestId, queryByText } = render(<Chat />);
     const chatContainer = getByTestId('chat');
@@ -20,5 +24,9 @@ describe('Chat', () => {
 
     expect(chatContainer).toBeInTheDocument();
     expect(messageComponent).toBeInTheDocument();
+  });
+
+  afterEach(() => {
+    jest.resetAllMocks();
   });
 });

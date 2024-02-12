@@ -1,0 +1,1 @@
+export { assignColorToUser, colors, userColors } from './assignColorToUser';
