@@ -1,12 +1,23 @@
+import { dataUsers } from '@store/data';
 import { render, fireEvent } from '@testing-library/react';
 import * as hooks from '@utils/hooks';
 
 import { SideBar } from './SideBar';
+
 import '@testing-library/jest-dom';
 
 jest.mock('@utils/hooks', () => ({
   ...jest.requireActual('@utils/hooks'),
   useIsMobile: jest.fn(),
+}));
+
+jest.mock('@store/hooks', () => ({
+  useAppState: () => ({
+    state: {
+      theme: 'light',
+      users: dataUsers,
+    },
+  }),
 }));
 
 describe('SideBar', () => {

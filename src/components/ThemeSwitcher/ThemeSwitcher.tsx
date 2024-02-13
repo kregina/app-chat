@@ -22,6 +22,7 @@ export const ThemeSwitcher = () => {
       className={styles.button}
       onClick={toggleTheme}
       data-cy="theme-switcher"
+      data-testid="theme-switcher"
       aria-label={label}
       data-tooltip-id="theme-switcher-tooltip"
       data-tooltip-content={label}

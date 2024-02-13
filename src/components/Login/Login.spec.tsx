@@ -1,3 +1,4 @@
+import { dataChat, dataUsers } from '@store/data';
 import { ActionsEnum } from '@store/enums';
 import { useAppState } from '@store/hooks';
 import { render, fireEvent, act, screen } from '@testing-library/react';
@@ -6,24 +7,30 @@ import '@testing-library/jest-dom';
 
 import { Login } from './Login';
 
-jest.mock('@store/hooks');
 jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
   useNavigate: jest.fn()
 }));
-jest.mock('@components/Theme/useTheme', () => ({
-  useTheme: () => ({ theme: 'dark' })
+
+jest.mock('@store/hooks', () => ({
+  useAppState: jest.fn()
 }));
 
 describe('Login', () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let dispatchMock: jest.Mock<any, any, any>;
+  let dispatchMock: jest.Mock;
 
   beforeEach(() => {
     dispatchMock = jest.fn();
     (useAppState as jest.Mock).mockReturnValue({
-      dispatch: dispatchMock
+      dispatch: dispatchMock,
+      state: {
+        theme: 'light',
+        users: dataUsers,
+        messages: dataChat,
+      },
     });
-    (useNavigate as jest.Mock).mockReturnValue(jest.fn());
+
+    (useNavigate as jest.Mock).mockReset().mockReturnValue(jest.fn());
   });
 
   it('renders login container with correct elements', () => {
@@ -34,22 +41,22 @@ describe('Login', () => {
     expect(screen.getByPlaceholderText('Choose a cool username!')).toBeInTheDocument();
   });
 
-  it(`dispatches ADD_USER action when 
-      enter button is clicked with valid username`, async () => {
+  it(`dispatches ADD_USER action with correct payload 
+      when enter button is clicked with valid username`, async () => {
     render(<Login />);
     const inputElement = screen.getByPlaceholderText('Choose a cool username!');
     const enterButton = screen.getByText('Enter');
 
     await act(async () => {
-      fireEvent.change(inputElement, { target: { value: 'John' } });
+      fireEvent.change(inputElement, { target: { value: 'Alice' } });
       fireEvent.click(enterButton);
     });
 
-    expect(dispatchMock).toHaveBeenCalledWith(expect.objectContaining({
+    expect(dispatchMock).toHaveBeenCalledWith({
       type: ActionsEnum.ADD_USER,
-      // TODO: Add a more specific payload check here
+      //TODO: Fix the payload type
       payload: expect.any(Object)
-    }));
+    });
   });
 
   it(`does not dispatch ADD_USER action when 
@@ -66,8 +73,8 @@ describe('Login', () => {
     expect(dispatchMock).not.toHaveBeenCalled();
   });
 
-  it(`navigates to lobby page after 
-      dispatching ADD_USER action with valid username`, async () => {
+  it(`navigates to lobby page after dispatching 
+      ADD_USER action with valid username`, async () => {
     const navigateMock = jest.fn();
     (useNavigate as jest.Mock).mockReturnValue(navigateMock);
 
@@ -80,7 +87,6 @@ describe('Login', () => {
       fireEvent.click(enterButton);
     });
 
-    //TODO: Add a more specific navigate check here
-    expect(navigateMock).toHaveBeenCalledWith(expect.any(String));
+    expect(navigateMock).toHaveBeenCalledWith('/app-chat/lobby');
   });
 });

@@ -13,8 +13,6 @@ import { PATHS } from '../../config/routes/routes';
 export const Navigation: FC = () => {
   const { state } = useAppState();
 
-  console.log('state', state);
-
   return (
     <nav className={styles.navigation} data-testid="navigation">
       <Tooltip id="logout-tooltip" data-testid="logout-tooltip" />

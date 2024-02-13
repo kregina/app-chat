@@ -1,20 +1,26 @@
-import { useUser } from '@store/hooks';
+import { useAppState } from '@store/hooks';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 import { Navigation } from './Navigation';
+
 import '@testing-library/jest-dom';
 
-jest.mock('@store/hooks');
+jest.mock('@store/hooks', () => ({
+  useAppState: jest.fn()
+}));
 
 describe('Navigation', () => {
   beforeEach(() => {
-    (useUser as jest.Mock).mockReturnValue({
+    (useAppState as jest.Mock).mockReturnValue({
       state: {
-        username: 'testUser',
-        status: 'AVAILABLE',
-        isOnline: true
-      }
+        theme: 'light',
+        currentUser: {
+          username: 'testUser',
+          status: 'Available',
+          isOnline: true
+        }
+      },
     });
   });
 
@@ -53,12 +59,15 @@ describe('Navigation', () => {
   });
 
   it('renders tooltip for long usernames', () => {
-    (useUser as jest.Mock).mockReturnValueOnce({
+    (useAppState as jest.Mock).mockReturnValue({
       state: {
-        username: 'longUsernameThatExceedsFiveCharacters',
-        status: 'AVAILABLE',
-        isOnline: true
-      }
+        theme: 'light',
+        currentUser: {
+          username: 'longUsernameThatExceedsFiveCharacters',
+          status: 'Available',
+          isOnline: true
+        }
+      },
     });
 
     const { getByTestId } = render(

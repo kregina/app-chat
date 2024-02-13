@@ -6,7 +6,7 @@ export interface User {
   theme?: string;
   status: UserStatusEnum;
   isOnline: boolean;
-  lastSeenAt: string;
+  lastSeenAt?: string;
 }
 
 export interface Message {

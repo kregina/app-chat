@@ -6,9 +6,12 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import Home from './Home';
 
-// Mocking useTheme hook
-jest.mock('@components/Theme/useTheme', () => ({
-  useTheme: () => ({ theme: 'dark' })
+jest.mock('@store/hooks', () => ({
+  useAppState: () => ({
+    state: {
+      theme: 'light',
+    },
+  }),
 }));
 
 describe('Page Home', () => {

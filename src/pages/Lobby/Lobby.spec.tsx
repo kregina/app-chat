@@ -1,10 +1,20 @@
 
 import '@testing-library/jest-dom';
+import { dataUsers } from '@store/data';
 import { screen } from '@testing-library/dom';
 import { render } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import Lobby from './Lobby';
+
+jest.mock('@store/hooks', () => ({
+  useAppState: () => ({
+    state: {
+      theme: 'light',
+      users: dataUsers
+    },
+  }),
+}));
 
 describe('Page Lobby', () => {
   beforeEach(() => {

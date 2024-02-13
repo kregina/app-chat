@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import { UsersList } from './UsersList';
 import '@testing-library/jest-dom';
 
-const mockUsers = [
+const mockedUsers = [
   { id: 6,
     username: 'Walter6',
     isOnline: false,
@@ -22,7 +22,7 @@ const mockUsers = [
 describe('UsersList', () => {
   it('renders list of users with title', () => {
     const { getByText, getAllByRole } = render(
-      <UsersList users={mockUsers} title="Online (2)" />
+      <UsersList users={mockedUsers} title="Online (2)" />
     );
 
     const titleElement = getByText('Online (2)');
@@ -34,7 +34,7 @@ describe('UsersList', () => {
 
   it('renders list of users without title', () => {
     const { queryByText, getAllByRole } = render(
-      <UsersList users={mockUsers} />
+      <UsersList users={mockedUsers} />
     );
 
     const titleElement = queryByText('Online (2)');

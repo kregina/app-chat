@@ -3,6 +3,12 @@ import '@testing-library/jest-dom';
 
 import { Chat } from './Chat';
 
+jest.mock('@store/hooks', () => ({
+  useAppState: () => ({
+    state: { theme: 'light' },
+  }),
+}));
+
 describe('Chat', () => {
   beforeEach(() => {
     window.HTMLElement.prototype.scrollIntoView = jest.fn();

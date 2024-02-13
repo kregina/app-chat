@@ -1,26 +1,30 @@
-import { dataChat } from '@store/data';
 import { render } from '@testing-library/react';
 
 import { Message } from './Message';
 import '@testing-library/jest-dom';
 
-jest.mock('@store/data', () => ({
-  dataChat: [
-    {
-      from_user: 'John',
-      text: 'Hello, how are you?',
-      sent_at: '2024-02-09T12:00:00Z',
-      isOnline: true,
-      status: 'AVAILABLE'
+jest.mock('@store/hooks', () => ({
+  useAppState: () => ({
+    state: {
+      theme: 'light',
+      messages: [
+        {
+          from_user: 'John',
+          text: 'Hello, how are you?',
+          sent_at: '2024-02-09T12:00:00Z',
+          isOnline: true,
+          status: 'Available'
+        },
+        {
+          from_user: 'Jane',
+          text: 'Hi John! I\'m doing great, thanks for asking.',
+          sent_at: '2024-02-09T12:05:00Z',
+          isOnline: false,
+          status: 'Away'
+        }
+      ],
     },
-    {
-      from_user: 'Jane',
-      text: 'Hi John! I\'m doing great, thanks for asking.',
-      sent_at: '2024-02-09T12:05:00Z',
-      isOnline: false,
-      status: 'AWAY'
-    }
-  ]
+  }),
 }));
 
 describe('Message', () => {
@@ -35,7 +39,7 @@ describe('Message', () => {
     expect(messageContainer).toBeInTheDocument();
 
     const messageItems = getAllByTestId('message-item');
-    expect(messageItems.length).toBe(dataChat.length);
+    expect(messageItems.length).toBe(2);
   });
 
   it('renders correct content for each message', () => {

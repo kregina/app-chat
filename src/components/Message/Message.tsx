@@ -20,7 +20,7 @@ export const Message = () => {
 
   return (
     <div className={styles.container} data-testid="message">
-      {state.messages.map((message, index) => {
+      {state.messages?.map((message, index) => {
         const userColor = assignColorToUser(message.from_user_id);
         const messageDate = new Date(message.sent_at).toLocaleDateString();
 
