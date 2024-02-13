@@ -62,6 +62,7 @@ describe('Input', () => {
         onValueChange={() => {}}
         placeholder="Enter your name"
         id="name"
+        withValidation
         message={message}
       />
     );

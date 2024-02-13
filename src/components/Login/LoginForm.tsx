@@ -53,6 +53,7 @@ export const LoginForm: FC<LoginFormProps> = (props: LoginFormProps) => {
         onValueChange={onUsernameChange}
         message={message}
         placeholder="Choose a cool username!"
+        withValidation
       />
 
       <Button isEnabled={isUsernameValid}

@@ -16,7 +16,7 @@ export const Message = () => {
   }, [state.messages]);
 
   const getUserFromMessage = (message: MessageState) =>
-    state.users.find((user) => user.id === message.from_user_id);
+    state.users?.find((user) => user.id === message.from_user_id);
 
   const isMessageFromCurrentUser = (message: MessageState) =>
     message.from_user_id === state.currentUser?.id;

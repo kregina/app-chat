@@ -8,10 +8,11 @@ interface InputProps {
   message?: string;
   placeholder: string;
   id: string;
+  withValidation?: boolean;
 }
 
 export const Input: FC<InputProps> = (props) => {
-  const { value, onValueChange, message, placeholder, id } = props;
+  const { value, onValueChange, message, placeholder, id, withValidation } = props;
 
   return (
     <label htmlFor={id} className={styles.label}>
@@ -26,6 +27,6 @@ export const Input: FC<InputProps> = (props) => {
         data-cy={`${id}-input`}
         placeholder={placeholder}
       />
-      {message && <small>{message}</small>}
+      {withValidation && <small>{message}</small>}
     </label>
   );};
