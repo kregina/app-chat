@@ -1,2 +1,1 @@
-export type { UserState } from './userState';
-export type { ChatMessageState } from './chatMessageState';
+export type { Message, User, AppState } from './appTypes';

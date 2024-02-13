@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { Avatar } from '@components/Avatar';
-import { UserState } from '@store/types';
+import { User as UserState } from '@store/types';
 import { useIsMobile } from '@utils/hooks';
 
 import styles from './User.module.css';

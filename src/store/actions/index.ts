@@ -1,1 +1,1 @@
-export type { UserActions } from './userActions';
+export type { AppActions } from './appActions';

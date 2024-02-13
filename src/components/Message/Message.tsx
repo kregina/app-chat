@@ -1,12 +1,13 @@
 import { useEffect, useRef } from 'react';
 
 import { Avatar } from '@components/Avatar';
-import { dataChat } from '@store/data';
+import { useAppState } from '@store/hooks';
 import { assignColorToUser } from '@utils/user';
 
 import styles from './Message.module.css';
 
 export const Message = () => {
+  const { state } = useAppState();
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToBottom = () => {
@@ -19,7 +20,7 @@ export const Message = () => {
 
   return (
     <div className={styles.container} data-testid="message">
-      {dataChat.map((message, index) => {
+      {state.messages.map((message, index) => {
         const userColor = assignColorToUser(message.from_user_id);
 
         return (

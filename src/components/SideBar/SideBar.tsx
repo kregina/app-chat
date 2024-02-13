@@ -2,27 +2,28 @@ import { FC, useEffect, useState } from 'react';
 
 import { Search } from '@components/Search';
 import { UsersList } from '@components/Users';
-import { dataUsers } from '@store/data';
-import { UserState } from '@store/types';
+import { useAppState } from '@store/hooks';
+import { User } from '@store/types';
 import { useIsMobile } from '@utils/hooks';
 
 import styles from './SideBar.module.css';
 
 export const SideBar:FC = () => {
   const isMobile = useIsMobile();
+  const { state } = useAppState();
 
-  const [users, setUsers] = useState<UserState[]>(dataUsers);
+  const [users, setUsers] = useState<User[]>(state.users);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    const filteredUsers = dataUsers.filter((user: UserState) => {
+    const filteredUsers = state.users.filter((user: User) => {
       return user.username.toLowerCase().includes(searchTerm.toLowerCase());
     });
     setUsers(filteredUsers);
-  }, [searchTerm]);
+  }, [searchTerm, state.users]);
 
-  const onlineUsers = users.filter((user: UserState) => user.isOnline);
-  const offlineUsers = users.filter((user: UserState) => !user.isOnline);
+  const onlineUsers = users.filter((user: User) => user.isOnline);
+  const offlineUsers = users.filter((user: User) => !user.isOnline);
 
   return (
     <div className={styles.container} data-testid="sidebar">

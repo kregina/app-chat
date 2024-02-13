@@ -1,4 +1,4 @@
-import { UserState } from '@store/types';
+import { User as UserState } from '@store/types';
 
 import { User } from './User';
 import styles from './UsersList.module.css';

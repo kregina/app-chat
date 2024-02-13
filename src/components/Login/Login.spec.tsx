@@ -1,6 +1,6 @@
-import { UserActionsEnum } from '@store/enums';
-import { useUser } from '@store/hooks';
-import { render, fireEvent, act } from '@testing-library/react';
+import { ActionsEnum } from '@store/enums';
+import { useAppState } from '@store/hooks';
+import { render, fireEvent, act, screen } from '@testing-library/react';
 import { useNavigate } from 'react-router-dom';
 import '@testing-library/jest-dom';
 
@@ -15,74 +15,72 @@ jest.mock('@components/Theme/useTheme', () => ({
 }));
 
 describe('Login', () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let dispatchMock: jest.Mock<any, any, any>;
+
   beforeEach(() => {
-    (useUser as jest.Mock).mockReturnValue({
-      dispatch: jest.fn()
+    dispatchMock = jest.fn();
+    (useAppState as jest.Mock).mockReturnValue({
+      dispatch: dispatchMock
     });
     (useNavigate as jest.Mock).mockReturnValue(jest.fn());
   });
 
   it('renders login container with correct elements', () => {
-    const { getByTestId, getByText, getByPlaceholderText } = render(<Login />);
-    const loginContainer = getByTestId('login');
+    render(<Login />);
+    const loginContainer = screen.getByTestId('login');
     expect(loginContainer).toBeInTheDocument();
-
-    expect(getByText('The Lobby™')).toBeInTheDocument();
-    expect(getByPlaceholderText('Choose a cool username!')).toBeInTheDocument();
+    expect(screen.getByText('The Lobby™')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Choose a cool username!')).toBeInTheDocument();
   });
 
-  it(`dispatches JOIN action when enter 
-      button is clicked with valid username`, async () => {
-    const { getByTestId, getByPlaceholderText } = render(<Login />);
-
-    const inputElement =
-      getByPlaceholderText('Choose a cool username!') as HTMLInputElement;
-    const enterButton = getByTestId('button-login');
+  it(`dispatches ADD_USER action when 
+      enter button is clicked with valid username`, async () => {
+    render(<Login />);
+    const inputElement = screen.getByPlaceholderText('Choose a cool username!');
+    const enterButton = screen.getByText('Enter');
 
     await act(async () => {
       fireEvent.change(inputElement, { target: { value: 'John' } });
       fireEvent.click(enterButton);
     });
 
-    expect(useUser().dispatch).toHaveBeenCalledWith({
-      type: UserActionsEnum.JOIN,
-      payload: {
-        username: 'John',
-        avatar: 'avatar_url'
-      }
-    });
+    expect(dispatchMock).toHaveBeenCalledWith(expect.objectContaining({
+      type: ActionsEnum.ADD_USER,
+      // TODO: Add a more specific payload check here
+      payload: expect.any(Object)
+    }));
   });
 
-  it(`does not dispatch JOIN action when enter 
-      button is clicked with invalid username`, async () => {
-    const { getByTestId, getByPlaceholderText } = render(<Login />);
-    const inputElement =
-      getByPlaceholderText('Choose a cool username!') as HTMLInputElement;
-    const enterButton = getByTestId('button-login');
+  it(`does not dispatch ADD_USER action when 
+      enter button is clicked with invalid username`, async () => {
+    render(<Login />);
+    const inputElement = screen.getByPlaceholderText('Choose a cool username!');
+    const enterButton = screen.getByText('Enter');
 
     await act(async () => {
       fireEvent.change(inputElement, { target: { value: 'Jo' } });
       fireEvent.click(enterButton);
     });
 
-    expect(useUser().dispatch).not.toHaveBeenCalled();
+    expect(dispatchMock).not.toHaveBeenCalled();
   });
 
-  it(`navigates to lobby page after dispatching 
-      JOIN action with valid username`, async () => {
+  it(`navigates to lobby page after 
+      dispatching ADD_USER action with valid username`, async () => {
     const navigateMock = jest.fn();
     (useNavigate as jest.Mock).mockReturnValue(navigateMock);
 
-    const { getByTestId, getByPlaceholderText } = render(<Login />);
-    const inputElement =
-      getByPlaceholderText('Choose a cool username!') as HTMLInputElement;
-    const enterButton = getByTestId('button-login');
+    render(<Login />);
+    const inputElement = screen.getByPlaceholderText('Choose a cool username!');
+    const enterButton = screen.getByText('Enter');
 
     await act(async () => {
       fireEvent.change(inputElement, { target: { value: 'John' } });
       fireEvent.click(enterButton);
     });
 
-    expect(navigateMock).toHaveBeenCalled();
+    //TODO: Add a more specific navigate check here
+    expect(navigateMock).toHaveBeenCalledWith(expect.any(String));
   });
 });

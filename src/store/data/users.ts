@@ -1,7 +1,7 @@
 import { UserStatusEnum } from '@store/enums';
-import { UserState } from '@store/types';
+import { User } from '@store/types';
 
-export const dataUsers: UserState[] = [
+export const dataUsers: User[] = [
   { id: 1,
     username: 'Alice',
     isOnline: true,

@@ -7,11 +7,11 @@ import {
   ReactNode
 } from 'react';
 
-import { Theme } from '@store/enums';
+import { ThemeEnum } from '@store/enums';
 
 type ThemeContextType = {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
+  theme: ThemeEnum;
+  setTheme: (theme: ThemeEnum) => void;
   toggleTheme: () => void;
 };
 
@@ -19,24 +19,24 @@ const PREFERS_COLOR_SCHEME_DARK = '(prefers-color-scheme: dark)';
 
 export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-const getSystemThemePreference = (): Theme =>
+const getSystemThemePreference = (): ThemeEnum =>
   window.matchMedia &&
-  window.matchMedia(PREFERS_COLOR_SCHEME_DARK).matches ? Theme.Dark : Theme.Light;
+  window.matchMedia(PREFERS_COLOR_SCHEME_DARK).matches ? ThemeEnum.Dark : ThemeEnum.Light;
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>(getSystemThemePreference());
+  const [theme, setTheme] = useState<ThemeEnum>(getSystemThemePreference());
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(PREFERS_COLOR_SCHEME_DARK);
     const handleChange = (event: MediaQueryListEvent) =>
-      setTheme(event.matches ? Theme.Dark : Theme.Light);
+      setTheme(event.matches ? ThemeEnum.Dark : ThemeEnum.Light);
 
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
   const toggleTheme = useCallback(() => {
-    const newTheme = theme === Theme.Light ? Theme.Dark : Theme.Light;
+    const newTheme = theme === ThemeEnum.Light ? ThemeEnum.Dark : ThemeEnum.Light;
 
     setTheme(newTheme);
   }, [theme]);

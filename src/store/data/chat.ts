@@ -1,7 +1,7 @@
 import { UserStatusEnum } from '@store/enums';
-import { ChatMessageState } from '@store/types';
+import { Message } from '@store/types';
 
-export const dataChat: ChatMessageState[] = [
+export const dataChat: Message[] = [
   {
     from_user_id: 1,
     from_user: 'Alice',

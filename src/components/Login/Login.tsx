@@ -5,8 +5,8 @@ import { Input } from '@components/Form/Input';
 import { useTheme } from '@components/Theme/useTheme';
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { UserActionsEnum } from '@store/enums';
-import { useUser } from '@store/hooks';
+import { ActionsEnum, UserStatusEnum } from '@store/enums';
+import { useAppState } from '@store/hooks';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './Login.module.css';
@@ -14,7 +14,7 @@ import { PATHS } from '../../config/routes/routes';
 
 export const Login: FC = () => {
   const { theme } = useTheme();
-  const { dispatch } = useUser();
+  const { dispatch } = useAppState();
   const navigate = useNavigate();
 
   const [username, setUsername] = useState('');
@@ -36,10 +36,14 @@ export const Login: FC = () => {
     event.preventDefault();
     if (isUsernameValid && username) {
       dispatch({
-        type: UserActionsEnum.JOIN,
+        type: ActionsEnum.ADD_USER,
         payload: {
-          username: username,
-          avatar: 'avatar_url'
+          id: 0,
+          username,
+          theme,
+          status: UserStatusEnum.AVAILABLE,
+          isOnline: true,
+          lastSeenAt: new Date().toISOString(),
         }
       });
 
