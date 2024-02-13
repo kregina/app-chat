@@ -1,14 +1,21 @@
 import { Tooltip } from '@components/StyledTooltip';
-import { useTheme } from '@components/Theme/useTheme';
-import { ThemeEnum } from '@store/enums';
+import { ActionsEnum, ThemeEnum } from '@store/enums';
+import { useAppState } from '@store/hooks';
 
 import styles from './ThemeSwitcher.module.css';
 
 export const ThemeSwitcher = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { state, dispatch } = useAppState();
+  const { theme } = state;
 
   const label = theme ===
     ThemeEnum.Light ? 'Switch to dark mode' : 'Switch to light mode';
+
+  const toggleTheme = () => {
+    dispatch({ type: ActionsEnum.SET_THEME,
+      payload: theme === ThemeEnum.Light ? ThemeEnum.Dark : ThemeEnum.Light
+    });
+  };
 
   return (
     <button

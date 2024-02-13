@@ -2,15 +2,17 @@ import { useState } from 'react';
 
 import { Button } from '@components/Form/Button';
 import { Input } from '@components/Form/Input';
-import { useTheme } from '@components/Theme/useTheme';
 import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
 import { faFaceSmile, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useAppState } from '@store/hooks';
 
 import styles from './Footer.module.css';
 export const Footer = () => {
-  const { theme } = useTheme();
+  const { state } = useAppState();
+  const { theme } = state;
+
   const [newMessage, setNewMessage] = useState<string>('');
   const [showEmojiPicker, setShowEmojiPicker] = useState<boolean>(false);
 

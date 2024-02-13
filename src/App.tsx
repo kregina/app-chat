@@ -1,14 +1,15 @@
-import '@components/Theme';
+import './assets/css/index.css';
 import { FC, Suspense, useEffect } from 'react';
 
-import { useTheme } from '@components/Theme/useTheme';
 import { ThemeSwitcher } from '@components/ThemeSwitcher';
+import { useAppState } from '@store/hooks';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { ROUTES } from './config/routes/routes';
 
 export const App: FC = () => {
-  const { theme } = useTheme();
+  const { state } = useAppState();
+  const { theme } = state;
 
   useEffect(() => {
     document.body.className = theme;

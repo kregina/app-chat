@@ -2,7 +2,6 @@ import { FC, useState } from 'react';
 
 import { Button } from '@components/Form/Button';
 import { Input } from '@components/Form/Input';
-import { useTheme } from '@components/Theme/useTheme';
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ActionsEnum, UserStatusEnum } from '@store/enums';
@@ -13,8 +12,9 @@ import styles from './Login.module.css';
 import { PATHS } from '../../config/routes/routes';
 
 export const Login: FC = () => {
-  const { theme } = useTheme();
-  const { dispatch } = useAppState();
+  const { state, dispatch } = useAppState();
+  const { theme } = state;
+
   const navigate = useNavigate();
 
   const [username, setUsername] = useState('');

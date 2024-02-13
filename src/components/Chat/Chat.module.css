@@ -1,4 +1,4 @@
-@import '../Theme/breakpoints.css';
+@import '../../assets/css/breakpoints.css';
 
 .title {
   display: none;

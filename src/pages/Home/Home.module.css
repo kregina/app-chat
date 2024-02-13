@@ -1,8 +1,8 @@
-@import '../../components/Theme/breakpoints.css';
+@import '../../assets/css/breakpoints.css';
 
 .container {
   height: 100dvh;
-  background-image: url('../../assets/background-mobile.svg');
+  background-image: url('../../assets/images/background-mobile.svg');
   background-repeat: no-repeat;
   background-position: top left;
   display: flex;
@@ -11,7 +11,7 @@
 
 @media (--medium-viewport) {
   .container {
-    background-image: url('../../assets/background-desktop.svg');
+    background-image: url('../../assets/images/background-desktop.svg');
     background-size: cover;
   }
 }
