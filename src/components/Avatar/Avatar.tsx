@@ -7,7 +7,7 @@ import styles from './Avatar.module.css';
 interface AvatarProps {
   username: string;
   size: 'small' | 'medium' | 'large';
-  status: UserStatusEnum
+  status: UserStatusEnum;
   isOnline?: boolean;
 }
 
@@ -22,7 +22,8 @@ export const Avatar: FC<AvatarProps> = ({ username, size, status, isOnline }) =>
       `}
     >
       <img
-        src={`https://robohash.org/${username}?set=set4`} alt={`${username} avatar`}
+        src={`https://robohash.org/${username}?set=set4`}
+        alt={`${username} avatar`}
       />
     </div>
   );

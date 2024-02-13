@@ -13,9 +13,11 @@ import { PATHS } from '../../config/routes/routes';
 export const Navigation: FC = () => {
   const { state } = useAppState();
 
+  console.log('state', state);
+
   return (
     <nav className={styles.navigation} data-testid="navigation">
-      <Tooltip id="logout-tooltip" data-testid="" />
+      <Tooltip id="logout-tooltip" data-testid="logout-tooltip" />
 
       <ul className={styles.list}>
         {state.currentUser && (
@@ -35,11 +37,9 @@ export const Navigation: FC = () => {
                 data-tooltip-content={state.currentUser.username}
                 data-testid="username-tooltip"
               >
-
-                {state.currentUser.username.length > 5 &&
-              <Tooltip id="username-tooltip"
-              />}
-
+                {state.currentUser.username.length > 5 && (
+                  <Tooltip id="username-tooltip" data-testid="username-tooltip" />
+                )}
                 {state.currentUser.username}
               </span>
             </Link>

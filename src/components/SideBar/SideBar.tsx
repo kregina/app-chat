@@ -8,7 +8,7 @@ import { useIsMobile } from '@utils/hooks';
 
 import styles from './SideBar.module.css';
 
-export const SideBar:FC = () => {
+export const SideBar: FC = () => {
   const isMobile = useIsMobile();
   const { state } = useAppState();
 
@@ -16,9 +16,9 @@ export const SideBar:FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    const filteredUsers = state.users.filter((user: User) => {
-      return user.username.toLowerCase().includes(searchTerm.toLowerCase());
-    });
+    const filteredUsers = state.users.filter((user: User) =>
+      user.username.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     setUsers(filteredUsers);
   }, [searchTerm, state.users]);
 
@@ -28,15 +28,11 @@ export const SideBar:FC = () => {
   return (
     <div className={styles.container} data-testid="sidebar">
       <h2 className={styles.title}>Users</h2>
-
-      <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
-
+      <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <div className={styles.content} data-testid="users-list-container">
-        {isMobile && (
+        {isMobile ? (
           <UsersList users={users} />
-        )}
-
-        {!isMobile && (
+        ) : (
           <>
             <UsersList users={onlineUsers} title="Online" />
             <UsersList users={offlineUsers} title="Offline" />
@@ -46,3 +42,4 @@ export const SideBar:FC = () => {
     </div>
   );
 };
+

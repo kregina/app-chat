@@ -22,6 +22,7 @@ export const Message = () => {
     <div className={styles.container} data-testid="message">
       {state.messages.map((message, index) => {
         const userColor = assignColorToUser(message.from_user_id);
+        const messageDate = new Date(message.sent_at).toLocaleDateString();
 
         return (
           <div key={index} className={styles.content} data-testid="message-item">
@@ -34,10 +35,11 @@ export const Message = () => {
             <div className={styles.box}>
               <p style={{ color: userColor }}>{message.from_user}</p>
               <p>{message.text}</p>
-              <small>{new Date(message.sent_at).toLocaleDateString()}</small>
+              <small>{messageDate}</small>
             </div>
           </div>
-        );})}
+        );
+      })}
       <div ref={messagesEndRef} />
     </div>
   );

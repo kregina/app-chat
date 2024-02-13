@@ -12,8 +12,7 @@ export function appReducer(state: AppState, action: AppActions): AppState {
     return { ...state, messages: [...state.messages, action.payload] };
   case ActionsEnum.ADD_USER:
     return {
-      ...state,
-      users: [...state.users, action.payload], currentUser: action.payload
+      ...state, currentUser: action.payload
     };
   default:
     return state;

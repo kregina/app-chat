@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { Button } from '@components/Form/Button';
 import { Input } from '@components/Form/Input';
@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppState } from '@store/hooks';
 
 import styles from './Footer.module.css';
+
 export const Footer = () => {
   const { state } = useAppState();
   const { theme } = state;
@@ -25,12 +26,11 @@ export const Footer = () => {
     setNewMessage('');
   };
 
-  const toggleEmojiPicker = (event: { stopPropagation: () => void; }) => {
-    event.stopPropagation();
+  const toggleEmojiPicker = () => {
     setShowEmojiPicker(!showEmojiPicker);
   };
 
-  const addEmoji = (emoji: { native: string; }) => {
+  const addEmoji = (emoji: { native: string }) => {
     setNewMessage((currentMessage) => currentMessage + emoji.native);
   };
 
@@ -61,7 +61,7 @@ export const Footer = () => {
         </Button>
         <Input
           id="new-message"
-          onValueChange={(message) => handleOnChange(message)}
+          onValueChange={handleOnChange}
           placeholder="Type new message..."
           value={newMessage}
         />
@@ -76,3 +76,4 @@ export const Footer = () => {
     </>
   );
 };
+
