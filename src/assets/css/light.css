@@ -5,11 +5,11 @@
   --color-tertiary: #7d5260;
   --on-color-tertiary: #efb8c8;
 
-  --color-background: var(--color-surface);
-  --color-background-variant: var(--color-surface-variant);
+  --color-background: var(--color-surface-variant);
+  --color-background-variant: var(--color-surface);
   --color-text: var(--color-on-surface);
   --color-text-variant: var(--color-on-surface-variant);
-  --color-message-box: var(--color-surface-variant);
+  --color-message-box: var(--color-surface);
   --color-message-current-user: #b9f6ca;
 
   --color-outline: #79747E;
