@@ -2,9 +2,11 @@ import { FC, useEffect, useState } from 'react';
 
 import { Navigation } from '@components/Navigation';
 import { SideBar } from '@components/SideBar';
+import { PATHS } from '@config/routes';
 import { useAppState } from '@store/hooks';
 import { User } from '@store/types';
 import { useIsMobile } from '@utils/hooks';
+import { useNavigate } from 'react-router-dom';
 
 import { Chat } from './Chat';
 import styles from './Lobby.module.css';
@@ -12,11 +14,18 @@ import { Search } from './Search';
 import { UsersList } from './Users';
 
 const Lobby: FC = () => {
+  const navigation = useNavigate();
   const isMobile = useIsMobile();
   const { state } = useAppState();
 
   const [users, setUsers] = useState<User[]>(state.users);
   const [searchTerm, setSearchTerm] = useState('');
+
+  useEffect(() => {
+    if (!state.currentUser) {
+      navigation(PATHS.HOME);
+    }
+  }, [navigation, state.currentUser]);
 
   useEffect(() => {
     const filteredUsers = state.users.filter((user: User) =>
@@ -33,7 +42,6 @@ const Lobby: FC = () => {
       <Navigation />
       <SideBar title="Users">
         <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-
         <div data-testid="users-list-container">
           {isMobile ? (
             <UsersList users={users} />
