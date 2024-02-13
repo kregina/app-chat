@@ -2,13 +2,13 @@ import { FC } from 'react';
 
 import { Avatar } from '@components/Avatar';
 import { Tooltip } from '@components/StyledTooltip';
+import { PATHS } from '@config/routes';
 import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppState } from '@store/hooks';
 import { Link } from 'react-router-dom';
 
 import styles from './Navigation.module.css';
-import { PATHS } from '../../config/routes/routes';
 
 export const Navigation: FC = () => {
   const { state } = useAppState();

@@ -27,7 +27,7 @@ export const User:FC<UserProps> = ({ user }) => {
       {!isMobile && (
         <div className={styles.info}>
           <p>{username}</p>
-          <small>{user.status}</small>
+          {user.isOnline && <small>{user.status}</small>}
         </div>
       )}
     </div>

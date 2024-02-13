@@ -8,7 +8,7 @@ interface ButtonProps {
   children: ReactNode,
   id: string,
   className?: 'icon';
-  type?: 'submit';
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export const Button: FC<ButtonProps> = (props: ButtonProps) => {

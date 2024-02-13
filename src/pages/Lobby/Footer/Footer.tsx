@@ -13,6 +13,7 @@ import { useClickOutside } from '@utils/hooks';
 import styles from './Footer.module.css';
 
 export const Footer = () => {
+
   const { state, dispatch } = useAppState();
   const { theme } = state;
 

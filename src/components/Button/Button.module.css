@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   transition: all .3s ease-in-out;
+  gap: .2rem;
 
   &:hover:not(:disabled) {
     background-color: var(--color-outline-variant);

@@ -2,6 +2,7 @@ import { FC, MouseEvent } from 'react';
 
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
+import { PATHS } from '@config/routes';
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ActionsEnum, UserStatusEnum } from '@store/enums';
@@ -9,8 +10,6 @@ import { useAppState } from '@store/hooks';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './Login.module.css';
-import { PATHS } from '../../../config/routes/routes';
-
 
 interface LoginFormProps {
   username: string;
@@ -57,7 +56,7 @@ export const LoginForm: FC<LoginFormProps> = (props: LoginFormProps) => {
       />
 
       <Button isEnabled={isUsernameValid}
-        onClick={(event) => handleEnter(event)} id="login">
+        onClick={handleEnter} id="login">
         <span>Enter</span>
         <FontAwesomeIcon
           data-testid="button-icon"
