@@ -38,22 +38,6 @@ describe('Input', () => {
     expect(handleChange).toHaveBeenCalledWith('John');
   });
 
-  it('trims input value when calling onValueChange function', () => {
-    const handleChange = jest.fn();
-    const { getByPlaceholderText } = render(
-      <Input
-        value=""
-        onValueChange={handleChange}
-        placeholder="Enter your name"
-        id="name"
-      />
-    );
-
-    const inputElement = getByPlaceholderText('Enter your name');
-    fireEvent.change(inputElement, { target: { value: '  John  ' } });
-    expect(handleChange).toHaveBeenCalledWith('John');
-  });
-
   it('renders message when provided', () => {
     const message = 'Please enter your name';
     const { getByText } = render(

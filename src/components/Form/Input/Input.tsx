@@ -21,7 +21,7 @@ export const Input: FC<InputProps> = (props) => {
         type="text"
         id={id}
         autoFocus
-        onChange={(e) => onValueChange(e.target.value.trim())}
+        onChange={(e) => onValueChange(e.target.value)}
         autoComplete="off"
         value={value}
         data-cy={`${id}-input`}

@@ -33,7 +33,7 @@ export const LoginForm: FC<LoginFormProps> = (props: LoginFormProps) => {
         type: ActionsEnum.ADD_USER,
         payload: {
           id: 0,
-          username,
+          username: username.trim(),
           theme: state.theme,
           status: UserStatusEnum.AVAILABLE,
           isOnline: true,
