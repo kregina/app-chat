@@ -10,6 +10,7 @@
   --color-text: var(--color-surface);
   --color-text-variant: var(--color-surface-variant);
   --color-message-box: var(--color-on-surface-variant);
+  --color-message-current-user: #004d40;
 
   --color-outline: #79747E;
   --color-outline-variant: #434746;

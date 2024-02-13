@@ -7,13 +7,25 @@
   position: relative;
 }
 
-em-emoji-picker {
-  position: absolute;
-  bottom: 17dvh;
+.emojiButton {
+  border-radius: var(--border-radius);
+  color: var(--color-text);
+  cursor: pointer;
+  padding: calc(var(--padding) / 1.5) var(--padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .3s ease-in-out;
+  font-size: 1.3rem;
+
+  &:hover {
+    background-color: var(--color-outline-variant);
+  }
 }
 
-@media (--medium-viewport) {
-  em-emoji-picker {
-    bottom: 10dvh;
-  }
+em-emoji-picker {
+  position: absolute;
+  bottom: 10dvh;
+  background-color: var(--color-background-variant);
+  left: 1rem;
 }

@@ -35,11 +35,6 @@ body {
   border: 0; 
 }
 
-*:hover::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
 *::-webkit-scrollbar {
   width: 5px; 
   transition: width 0.3s ease;

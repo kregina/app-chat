@@ -4,7 +4,6 @@
   background-color: var(--color-primary);
   color: var(--color-text);
   cursor: pointer;
-  transition: background-color 300ms ease-in-out;
   padding: calc(var(--padding) / 1.5) var(--padding);
   display: flex;
   align-items: center;
@@ -12,7 +11,7 @@
   transition: all .3s ease-in-out;
 
   &:hover:not(:disabled) {
-    opacity: var(--opacity);
+    background-color: var(--color-outline-variant);
   }
 
   &:disabled {
@@ -25,9 +24,5 @@
 .icon {
   background: none;
   font-size: 1.3rem;
-
-  &:hover {
-    background-color: var(--color-outline-variant);
-  }
 }
 

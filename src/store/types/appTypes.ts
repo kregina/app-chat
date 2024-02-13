@@ -1,5 +1,4 @@
-import { ThemeEnum, UserStatusEnum } from '@store/enums';
-
+import { StatusMessageEnum, ThemeEnum, UserStatusEnum } from '@store/enums';
 export interface User {
   id: number;
   username: string;
@@ -12,10 +11,10 @@ export interface User {
 export interface Message {
   from_user_id: number;
   from_user: string;
+  from_user_status: UserStatusEnum;
   sent_at: string;
   text: string;
-  isOnline: boolean;
-  status: UserStatusEnum;
+  status: StatusMessageEnum;
 }
 
 export interface AppState {

@@ -4,26 +4,23 @@ import styles from './Button.module.css';
 
 interface ButtonProps {
   isEnabled?: boolean;
-  onClick: MouseEventHandler<HTMLButtonElement>
+  onClick?: MouseEventHandler<HTMLButtonElement>
   children: ReactNode,
   id: string,
   className?: 'icon';
+  type?: 'submit';
 }
 
 export const Button: FC<ButtonProps> = (props: ButtonProps) => {
-  const { isEnabled = true, onClick, children, id, className } = props;
-
-  const handleOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    onClick(event);
-  };
+  const { isEnabled = true, onClick, children, id, className, type } = props;
 
   return (
     <button
       data-testid={`button-${id}`}
       data-cy={`button-${id}`}
       className={`${styles.button} ${className ? styles[className] : ''}`}
-      disabled={!isEnabled} onClick={handleOnClick}
+      disabled={!isEnabled} onClick={onClick}
+      type={type}
     >
       {children}
     </button>

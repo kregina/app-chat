@@ -51,3 +51,21 @@
     font-size: .8rem;
   }
 }
+
+.right {
+  grid-template-columns: 1fr auto;
+  justify-items: flex-end;
+
+  .box {
+    background-color: var(--color-message-current-user);
+    margin-right: .5rem;
+    order: -1;
+    justify-self: auto;
+
+    &:before {
+      border-color: transparent transparent var(--color-message-current-user) transparent;
+      left: auto;
+      right: -10px;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, MouseEvent } from 'react';
 
 import { Button } from '@components/Form/Button';
 import { Input } from '@components/Form/Input';
@@ -25,7 +25,9 @@ export const LoginForm: FC<LoginFormProps> = (props: LoginFormProps) => {
   const { state, dispatch } = useAppState();
   const navigate = useNavigate();
 
-  const handleEnter = () => {
+  const handleEnter = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
     if (isUsernameValid && username) {
       dispatch({
         type: ActionsEnum.ADD_USER,
@@ -53,7 +55,8 @@ export const LoginForm: FC<LoginFormProps> = (props: LoginFormProps) => {
         placeholder="Choose a cool username!"
       />
 
-      <Button isEnabled={isUsernameValid} onClick={handleEnter} id="login">
+      <Button isEnabled={isUsernameValid}
+        onClick={(event) => handleEnter(event)} id="login">
         <span>Enter</span>
         <FontAwesomeIcon
           data-testid="button-icon"
