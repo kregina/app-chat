@@ -23,7 +23,7 @@
 }
 
 .title {
-  margin-bottom: var(--margin);
+  margin: var(--margin) 0;
   width: 100%;  
 
   small {
