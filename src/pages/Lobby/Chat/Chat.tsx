@@ -1,7 +1,7 @@
-import { Message } from '@components/Message';
 
 import styles from './Chat.module.css';
 import { Footer } from '../Footer';
+import { Message } from '../Message';
 
 export const Chat = () => {
 

@@ -1,5 +1,5 @@
 .container {
-  background-image: url('../../assets/images/background-desktop-lobby.svg');
+  background-image: url('../../../assets/images/background-desktop-lobby.svg');
   background-size: cover;
   background-size: 101%;
   background-position-x: -5px;
