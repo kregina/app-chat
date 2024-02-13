@@ -8,6 +8,7 @@ const config: Config.InitialOptions = {
     '^@components/(.*)$': '<rootDir>/src/components/$1',
     '^@utils/(.*)$': '<rootDir>/src/utils/$1',
     '^@store/(.*)$': '<rootDir>/src/store/$1',
+    '^@config/(.*)$': '<rootDir>/src/config/$1',
     '\\.(css)$': '<rootDir>/src/__mocks__/styleMock.ts',
   },
   transform: {

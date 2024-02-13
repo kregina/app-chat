@@ -36,7 +36,7 @@ describe('NotFound', () => {
     const { container, getByTestId } = render(<NotFound />);
     await act(async () => container);
 
-    const backButton = getByTestId('go-home');
+    const backButton = getByTestId('button-go-home');
 
     await act(async () => {
       fireEvent.click(backButton);
