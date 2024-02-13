@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Input } from '@components/Form/Input';
+import { Input } from '@components/Input';
 
 import styles from './Search.module.css';
 

@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 
-import { Button } from '@components/Form/Button';
-import { Input } from '@components/Form/Input';
+import { Button } from '@components/Button';
+import { Input } from '@components/Input';
 import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
 import { faFaceSmile, faPaperPlane } from '@fortawesome/free-regular-svg-icons';

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './NotFound.module.css';
-import { PATHS } from '../../config/routes/routes';
+import { PATHS } from '../../../config/routes/routes';
 
 export const NotFound = () => {
   const navigate = useNavigate();

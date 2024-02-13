@@ -1,71 +1,23 @@
-import { dataUsers } from '@store/data';
-import { render, fireEvent } from '@testing-library/react';
-import * as hooks from '@utils/hooks';
-
-import { SideBar } from './SideBar';
+import { render, screen } from '@testing-library/react';
 
 import '@testing-library/jest-dom';
+import { SideBar } from '.';
 
-jest.mock('@utils/hooks', () => ({
-  ...jest.requireActual('@utils/hooks'),
-  useIsMobile: jest.fn(),
-}));
+describe('SideBar Component', () => {
+  const title = 'Test Title';
+  const childText = 'This is a child component';
 
-jest.mock('@store/hooks', () => ({
-  useAppState: () => ({
-    state: {
-      theme: 'light',
-      users: dataUsers,
-    },
-  }),
-}));
+  it('renders the SideBar with a title and content', () => {
+    render(
+      <SideBar title={title}>
+        <p>{childText}</p>
+      </SideBar>
+    );
 
-describe('SideBar', () => {
-  it('renders sidebar container with search and users list', () => {
-    const { getByTestId } = render(<SideBar />);
-    const sideBarContainer = getByTestId('sidebar');
-    expect(sideBarContainer).toBeInTheDocument();
+    expect(screen.getByText(title)).toBeInTheDocument();
 
-    const searchElement = getByTestId('search');
-    expect(searchElement).toBeInTheDocument();
+    expect(screen.getByText(childText)).toBeInTheDocument();
 
-    const usersListElement = getByTestId('users-list-container');
-    expect(usersListElement).toBeInTheDocument();
+    expect(screen.getByTestId('sidebar')).toBeInTheDocument();
   });
-
-  it('filters users when search term changes', () => {
-    const { getByPlaceholderText, queryByText } = render(<SideBar />);
-    const inputElement = getByPlaceholderText('Search an user...');
-
-    fireEvent.change(inputElement, { target: { value: 'Alice' } });
-
-    expect(queryByText('Alice')).toBeInTheDocument();
-    expect(queryByText('Jane')).not.toBeInTheDocument();
-  });
-
-  it('displays online and offline users lists on non-mobile view', () => {
-    (hooks.useIsMobile as jest.Mock).mockReturnValue(false);
-
-    const { getByText } = render(<SideBar />);
-    const onlineUsersTitle = getByText('Online');
-    const offlineUsersTitle = getByText('Offline');
-
-    expect(onlineUsersTitle).toBeInTheDocument();
-    expect(offlineUsersTitle).toBeInTheDocument();
-  });
-
-  it('displays all users in a single list on mobile view', () => {
-
-    (hooks.useIsMobile as jest.Mock).mockReturnValue(true);
-
-    const { getByTestId, queryByText } = render(<SideBar />);
-    const usersListContainer = getByTestId('users-list-container');
-
-    expect(usersListContainer).toBeInTheDocument();
-
-    expect(queryByText('Online')).not.toBeInTheDocument();
-    expect(queryByText('Offline')).not.toBeInTheDocument();
-  });
-
-
 });

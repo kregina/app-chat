@@ -1,44 +1,19 @@
-import { FC, useEffect, useState } from 'react';
-
-import { Search } from '@components/Search';
-import { UsersList } from '@components/Users';
-import { useAppState } from '@store/hooks';
-import { User } from '@store/types';
-import { useIsMobile } from '@utils/hooks';
+import { ReactNode } from 'react';
 
 import styles from './SideBar.module.css';
 
-export const SideBar: FC = () => {
-  const isMobile = useIsMobile();
-  const { state } = useAppState();
+interface SideBarProps {
+  children: ReactNode;
+  title: string;
+}
 
-  const [users, setUsers] = useState<User[]>(state.users);
-  const [searchTerm, setSearchTerm] = useState('');
-
-  useEffect(() => {
-    const filteredUsers = state.users.filter((user: User) =>
-      user.username.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setUsers(filteredUsers);
-  }, [searchTerm, state.users]);
-
-  const onlineUsers = users.filter((user: User) => user.isOnline);
-  const offlineUsers = users.filter((user: User) => !user.isOnline);
+export const SideBar = (props: SideBarProps) => {
+  const { children, title } = props;
 
   return (
     <div className={styles.container} data-testid="sidebar">
-      <h2 className={styles.title}>Users</h2>
-      <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <div className={styles.content} data-testid="users-list-container">
-        {isMobile ? (
-          <UsersList users={users} />
-        ) : (
-          <>
-            <UsersList users={onlineUsers} title="Online" />
-            <UsersList users={offlineUsers} title="Offline" />
-          </>
-        )}
-      </div>
+      <h2 className={styles.title}>{title}</h2>
+      <div className={styles.content}>{children}</div>
     </div>
   );
 };

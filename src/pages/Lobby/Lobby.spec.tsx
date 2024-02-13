@@ -30,6 +30,20 @@ describe('Page Lobby', () => {
     expect(screen.getByTestId('lobby')).toBeInTheDocument();
   });
 
+  it('renders lobby container with search and users list', () => {
+    const { getByTestId } = render(
+      <Router>
+        <Lobby />
+      </Router>
+    );
+
+    const searchElement = getByTestId('search');
+    expect(searchElement).toBeInTheDocument();
+
+    const usersListElement = getByTestId('users-list-container');
+    expect(usersListElement).toBeInTheDocument();
+  });
+
   it('contains navigation, sidebar, and chat components', () => {
     render(
       <Router>
