@@ -9,7 +9,6 @@
 }
 
 .content {
-  overflow-x: auto;
   width: 100%;
 }
 
@@ -23,12 +22,17 @@
     flex-direction: column;
     align-items: flex-start;
     width: 16dvw;
-    width: 400px;
     border-radius: 0 2rem 0 0;
     height: 100dvh;
   }
 
   .title {
     margin-bottom: var(--margin);
+  }
+
+  .content {
+    overflow-x: auto;
+    width: 100%;
+    height: 80dvh;
   }
 }

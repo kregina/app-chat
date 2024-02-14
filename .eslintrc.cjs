@@ -21,7 +21,7 @@ module.exports = {
     "no-trailing-spaces": "error",
     "no-multiple-empty-lines": "error",
     "no-multi-spaces": "error",
-    "max-len": ["error", 90, 2, {
+    "max-len": ["error", 100, 2, {
       "ignoreUrls": true,
       "ignoreComments": false,
       "ignoreRegExpLiterals": true,

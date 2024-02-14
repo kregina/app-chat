@@ -14,6 +14,37 @@
   }
 }
 
+.status {
+  [class*="control"], [class*="option"]{
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    box-shadow: none;
+
+    &:hover {
+      border-color: var(--color-secondary);
+    }
+  }
+
+  [class*="singleValue"] {
+    color: var(--color-text);
+  }
+
+  [class*="menu"] {
+    background-color: var(--color-secondary);
+    color: var(--on-color-secondary);
+  }
+
+  [class*="option"]:active {
+    background-color: var(--on-color-secondary);
+    color: var(--color-secondary);
+  }
+
+  [aria-selected="true"] {
+    background-color: var(--on-color-tertiary);
+    color: var(--color-tertiary);
+  }
+}
+
 @media (--medium-viewport) {
   .content {
     margin: var(--margin) 0;

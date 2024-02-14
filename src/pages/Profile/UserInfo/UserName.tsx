@@ -47,7 +47,7 @@ export const UserName = () => {
   const saveUsername = () => {
     if (isValidUsername && username) {
       dispatch({
-        type: ActionsEnum.ADD_USER,
+        type: ActionsEnum.SET_USER,
         payload: {
           id: state.currentUser?.id || 0,
           isOnline: true,
