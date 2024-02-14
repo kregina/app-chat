@@ -8,25 +8,6 @@
   padding: var(--padding);
 }
 
-.username {
-  transition: all .3s ease-in-out;
-
-  a {
-    color: var(--color-tertiary);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-  }
-
-  span {
-    margin-left: .5rem;
-  }
-
-  &:hover {
-    opacity: var(--opacity);
-  }
-}
-
 .logout {
   transition: opacity .3s ease-in-out;
 
