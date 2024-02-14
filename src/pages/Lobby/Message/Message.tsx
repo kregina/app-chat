@@ -1,9 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 
 import { Avatar } from '@components/Avatar';
 import { useAppState } from '@store/hooks';
-import { Message as MessageState } from '@store/types';
-import { assignColorToUser } from '@utils/user';
+import { assignColorToUser,
+  getUserFromMessage,
+  isMessageFromCurrentUser,
+  isUserOnline } from '@utils/user';
 
 import styles from './Message.module.css';
 
@@ -11,41 +13,36 @@ export const Message = () => {
   const { state } = useAppState();
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
+  const scrollToBottom = useCallback(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
+
   useEffect(() => {
     scrollToBottom();
-  }, [state.messages]);
-
-  const getUserFromMessage = (message: MessageState) =>
-    state.users?.find((user) => user.id === message.from_user_id);
-
-  const isMessageFromCurrentUser = (message: MessageState) =>
-    message.from_user_id === state.currentUser?.id;
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const isOnline = (message: MessageState) =>
-    getUserFromMessage(message)?.isOnline ?? state.currentUser?.isOnline;
+  }, [state.messages, scrollToBottom]);
 
   return (
     <div className={styles.container} data-testid="message">
       {state.messages?.map((message, index) => {
+
         const userColor = assignColorToUser(message.from_user_id);
         const messageDate = new Date(message.sent_at).toLocaleDateString();
+        const user = getUserFromMessage(state.users, message.from_user_id);
+        const contentStyle =
+          isMessageFromCurrentUser(state.currentUser?.id, message.from_user_id)
+            ? `${styles.content} ${styles.right}`
+            : styles.content;
 
         return (
           <div
             key={index}
-            className={`${styles.content} 
-            ${isMessageFromCurrentUser(message) ? styles.right : ''}`}
-            data-testid="message-item"
-          >
+            className={contentStyle}
+            data-testid="message-item">
             <Avatar
               username={message.from_user}
               size="medium"
               status={message.from_user_status}
-              isOnline={isOnline(message)}
+              isOnline={isUserOnline(user, state.currentUser)}
             />
             <div className={styles.box}>
               <p style={{ color: userColor }}>{message.from_user}</p>
