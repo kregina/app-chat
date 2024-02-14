@@ -16,12 +16,14 @@ export const Footer = () => {
 
   const [newMessage, setNewMessage] = useState<string>('');
   const [showEmojiPicker, setShowEmojiPicker] = useState<boolean>(false);
+  const [isTyping, setIsTyping] = useState<boolean>(false);
 
   const emojiPickerRef = useRef(null);
   const emojiPickerButtonRef = useRef(null);
 
   const handleOnChange = (message: string) => {
     setNewMessage(message);
+    setIsTyping(!!message.length);
   };
 
   const sendMessage = (event: React.FormEvent<HTMLFormElement>) => {
@@ -62,6 +64,10 @@ export const Footer = () => {
           setShowEmojiPicker={setShowEmojiPicker}
         />
       )}
+
+      <small className={styles.typing}>
+        {isTyping && `${state.currentUser?.username} is typing...`}
+      </small>
 
       <form
         onSubmit={sendMessage}
