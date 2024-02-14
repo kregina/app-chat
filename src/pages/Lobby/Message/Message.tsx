@@ -1,6 +1,9 @@
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
 
 import { Avatar } from '@components/Avatar';
+import { Button } from '@components/Button';
+import { faDownLong } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppState } from '@store/hooks';
 import { assignColorToUser,
   getUserFromMessage,
@@ -12,9 +15,31 @@ import styles from './Message.module.css';
 export const Message = () => {
   const { state } = useAppState();
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   const scrollToBottom = useCallback(() => {
+    setShowScrollButton(false);
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (containerRef.current) {
+        const atTop =
+          containerRef.current.scrollHeight - containerRef.current.scrollTop
+          !== containerRef.current.clientHeight;
+
+        setShowScrollButton(atTop);
+      }
+    };
+
+    const scrollContainer = containerRef.current;
+    scrollContainer?.addEventListener('scroll', handleScroll);
+
+    return () => {
+      scrollContainer?.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -22,7 +47,7 @@ export const Message = () => {
   }, [state.messages, scrollToBottom]);
 
   return (
-    <div className={styles.container} data-testid="message">
+    <div className={styles.container} data-testid="message" ref={containerRef}>
       {state.messages?.map((message, index) => {
 
         const userColor = assignColorToUser(message.from_user_id);
@@ -52,6 +77,21 @@ export const Message = () => {
           </div>
         );
       })}
+
+      {showScrollButton && (
+        <div className={styles.scrollButton}>
+          <Button
+            className="icon"
+            id="send-message"
+            type="button"
+            onClick={scrollToBottom}>
+            <FontAwesomeIcon
+              data-testid="button-icon"
+              icon={faDownLong}
+            />
+          </Button>
+        </div>
+      )}
       <div ref={messagesEndRef} />
     </div>
   );

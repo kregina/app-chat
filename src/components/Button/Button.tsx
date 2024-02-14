@@ -7,7 +7,7 @@ interface ButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>
   children: ReactNode,
   id: string,
-  className?: 'icon';
+  className?: 'icon' | string;
   type?: 'button' | 'submit' | 'reset';
 }
 

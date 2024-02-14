@@ -7,6 +7,7 @@
   padding: var(--padding);
   max-height: 80dvh;
   overflow-y: auto;
+  position: relative;
 }
 
 .content {
@@ -68,4 +69,12 @@
       right: -10px;
     }
   }
+}
+
+.scrollButton {
+  background-color: var(--on-color-tertiary);
+  border-radius: var(--border-radius); 
+  position: fixed;
+  bottom: 20dvh;
+  right: 1rem;
 }
