@@ -1,10 +1,5 @@
 @import '../../../assets/css/breakpoints.css';
 
-.title {
-  display: none;
-  padding: var(--padding);
-}
-
 .container {
   display: grid;
   grid-template-rows: 1fr auto;
@@ -12,10 +7,6 @@
 }
 
 @media (--medium-viewport) {
-  .title {
-    display: block;
-  }
-
   .container {
     grid-template-rows: auto 1fr auto;
     height: 100dvh;

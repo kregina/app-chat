@@ -12,6 +12,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import styles from './Profile.module.css';
 import { UserInfo } from './UserInfo';
+import { Users } from './Users';
 
 export default function Profile () {
   const { state } = useAppState();
@@ -25,7 +26,7 @@ export default function Profile () {
   }, [navigation, state.currentUser]);
 
   return (
-    <div className={styles.container} data-testid="lobby">
+    <div className={styles.container} data-testid="profile">
       <Navigation>
         <li>
           <Link to={PATHS.LOBBY} className={styles.link}>
@@ -46,10 +47,11 @@ export default function Profile () {
           )}
         </div>
         {!isMobile && <UserInfo /> }
-
       </SideBar>
 
       {isMobile && <UserInfo /> }
+
+      <Users />
     </div>
   );
 }
