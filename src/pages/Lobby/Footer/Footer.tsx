@@ -1,28 +1,24 @@
 import { useRef, useState } from 'react';
 
 import { Button } from '@components/Button';
+import { EmojiPicker } from '@components/EmojiPicker';
 import { Input } from '@components/Input';
-import data from '@emoji-mart/data';
-import Picker from '@emoji-mart/react';
 import { faFaceSmile, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ActionsEnum, StatusMessageEnum } from '@store/enums';
 import { useAppState } from '@store/hooks';
-import { useClickOutside } from '@utils/hooks';
 
 import styles from './Footer.module.css';
 
 export const Footer = () => {
 
   const { state, dispatch } = useAppState();
-  const { theme } = state;
 
   const [newMessage, setNewMessage] = useState<string>('');
   const [showEmojiPicker, setShowEmojiPicker] = useState<boolean>(false);
 
   const emojiPickerRef = useRef(null);
-
-  useClickOutside(emojiPickerRef, () => setShowEmojiPicker(false));
+  const emojiPickerButtonRef = useRef(null);
 
   const handleOnChange = (message: string) => {
     setNewMessage(message);
@@ -57,47 +53,46 @@ export const Footer = () => {
   };
 
   return (
-    <form
-      onSubmit={sendMessage}
-      className={styles.container} data-testid="footer">
-      <div ref={emojiPickerRef}>
+    <>
+      {showEmojiPicker && (
+        <EmojiPicker
+          addEmoji={addEmoji}
+          emojiPickerRef={emojiPickerRef}
+          emojiPickerButtonRef={emojiPickerButtonRef}
+          setShowEmojiPicker={setShowEmojiPicker}
+        />
+      )}
+
+      <form
+        onSubmit={sendMessage}
+        className={styles.container} data-testid="footer">
         <span
+          ref={emojiPickerButtonRef}
           className={styles.emojiButton}
           onClick={toggleEmojiPicker}
           data-testid="emoji-button"
         >
-          {showEmojiPicker && (
-            <Picker
-              data={data}
-              onEmojiSelect={addEmoji}
-              className={styles.emojiPicker}
-              icons="outline"
-              previewEmoji="none"
-              theme={theme}
-            />
-          )}
           <FontAwesomeIcon
             data-testid="button-icon"
             icon={faFaceSmile}
             className={styles.icon}
           />
         </span>
-      </div>
-
-      <Input
-        id="new-message"
-        onValueChange={handleOnChange}
-        placeholder="Type new message..."
-        value={newMessage}
-      />
-      <Button className="icon" id="send-message" type="submit">
-        <FontAwesomeIcon
-          data-testid="button-icon"
-          icon={faPaperPlane}
-          className={styles.icon}
+        <Input
+          id="new-message"
+          onValueChange={handleOnChange}
+          placeholder="Type new message..."
+          value={newMessage}
         />
-      </Button>
-    </form>
+        <Button className="icon" id="send-message" type="submit">
+          <FontAwesomeIcon
+            data-testid="button-icon"
+            icon={faPaperPlane}
+            className={styles.icon}
+          />
+        </Button>
+      </form>
+    </>
   );
 };
 

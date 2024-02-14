@@ -1,10 +1,7 @@
-@import '../../../assets/css/breakpoints.css';
-
 .container {
   padding: var(--padding);
   display: flex;
   gap: var(--padding);
-  position: relative;
 }
 
 .emojiButton {
@@ -12,20 +9,15 @@
   color: var(--color-text);
   cursor: pointer;
   padding: calc(var(--padding) / 1.5) var(--padding);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: all .3s ease-in-out;
   font-size: 1.3rem;
+  position: relative;
 
   &:hover {
     background-color: var(--color-outline-variant);
   }
 }
 
-em-emoji-picker {
-  position: absolute;
-  bottom: 10dvh;
-  background-color: var(--color-background-variant);
-  left: 1rem;
-}

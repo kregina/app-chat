@@ -1,0 +1,16 @@
+@import '../../assets/css/breakpoints.css';
+
+.emojiPicker {
+  position: absolute !important;
+  background-color: var(--color-background-variant)!important;
+  bottom: 18dvh;
+  left: 1rem;
+  border-radius: var(--border-radius);
+}
+
+@media (--medium-viewport) {
+  .emojiPicker {
+    left: 20dvw;
+    bottom: 4rem;
+  }
+}
