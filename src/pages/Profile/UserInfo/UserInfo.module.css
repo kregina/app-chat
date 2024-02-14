@@ -1,0 +1,21 @@
+@import '../../../assets/css/breakpoints.css';
+
+.content {
+  margin: var(--margin);
+}
+
+.username {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+
+  label {
+    margin-top: 1.4rem;
+  }
+}
+
+@media (--medium-viewport) {
+  .content {
+    margin: var(--margin) 0;
+  }
+}

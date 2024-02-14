@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from 'react';
 
-import { Navigation } from '@components/Navigation';
 import { SideBar } from '@components/SideBar';
 import { PATHS } from '@config/routes';
 import { useAppState } from '@store/hooks';
@@ -10,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Chat } from './Chat';
 import styles from './Lobby.module.css';
+import { NavigationWrapper } from './NavigationWrapper';
 import { Search } from './Search';
 import { UsersList } from './Users';
 
@@ -39,7 +39,8 @@ const Lobby: FC = () => {
 
   return (
     <div className={styles.container} data-testid="lobby">
-      <Navigation />
+      <NavigationWrapper />
+
       <SideBar title="Users">
         <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <div data-testid="users-list-container">

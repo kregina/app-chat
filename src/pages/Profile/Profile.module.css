@@ -1,0 +1,40 @@
+@import '../../assets/css/breakpoints.css';
+
+.container {
+  --avatar-large-size: 10rem;
+
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.link {
+  transition: all .3s ease-in-out;
+  text-decoration: none;
+  color: var(--color-tertiary);
+  display: flex;
+  align-items: center;
+  font-size: calc(var(--font-size) * 1.5);
+  padding: var(--padding);
+
+  &:hover {
+    background-color: var(--on-color-tertiary);
+  }
+}
+
+.sidebar {
+  text-align: center;
+  padding: var(--padding);
+}
+
+@media (--medium-viewport) {
+  .container {
+    grid-template-rows: 1fr;
+    grid-template-columns: 4rem auto 1fr;
+  }
+
+  .sidebar {  
+    padding: 0;
+  }
+}

@@ -9,12 +9,13 @@ interface AvatarProps {
   size: 'small' | 'medium' | 'large';
   status: UserStatusEnum;
   isOnline?: boolean;
+  id?: string;
 }
 
-export const Avatar: FC<AvatarProps> = ({ username, size, status, isOnline }) => {
+export const Avatar: FC<AvatarProps> = ({ username, size, status, isOnline, id }) => {
   return (
     <div
-      data-testid="avatar"
+      data-testid={`${id}-avatar`}
       className={`
         ${styles.avatar} 
         ${styles[size]}
