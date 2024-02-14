@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import styles from './Input.module.css';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
+interface InputProps{
   value: string;
   onValueChange: (value: string) => void;
   message?: string;
@@ -10,6 +10,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
   id: string;
   withValidation?: boolean;
   defaultValue?: string;
+  onBlur?: () => void;
 }
 
 export const Input: FC<InputProps> = (props) => {
@@ -19,23 +20,23 @@ export const Input: FC<InputProps> = (props) => {
     placeholder,
     id,
     withValidation,
-    defaultValue
+    defaultValue,
+    onBlur
   } = props;
 
   return (
     <label htmlFor={id} className={styles.label}>
       <input
-        {...props}
         className={styles.input}
         type="text"
         id={id}
         autoFocus
         onChange={(e) => onValueChange(e.target.value)}
         autoComplete="off"
-        value={value}
+        defaultValue={defaultValue ?? value}
         data-testid={`${id}-input`}
         placeholder={placeholder}
-        defaultValue={defaultValue}
+        onBlur={onBlur}
       />
       {withValidation && <small>{message}</small>}
     </label>

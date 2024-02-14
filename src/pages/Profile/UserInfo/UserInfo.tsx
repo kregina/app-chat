@@ -39,7 +39,7 @@ export const UserInfo = () => {
 
       <small>
         {state.currentUser?.lastSeenAt
-        && `Seen at: ${new Date(state.currentUser.lastSeenAt).toLocaleDateString()}`}
+        && `Last seen at: ${new Date(state.currentUser.lastSeenAt).toLocaleDateString()}`}
       </small>
     </div>
   );
