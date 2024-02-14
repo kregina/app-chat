@@ -82,7 +82,7 @@ export const Message = () => {
         <div className={styles.scrollButton}>
           <Button
             className="icon"
-            id="send-message"
+            id="sroll-to-bottom"
             type="button"
             onClick={scrollToBottom}>
             <FontAwesomeIcon

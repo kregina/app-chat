@@ -29,10 +29,18 @@ export const EmojiPicker = (props: EmojiPickerProps) => {
       }
     };
 
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setShowEmojiPicker(false);
+      }
+    };
+
     document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener('keydown', handleEscapeKey);
 
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('keydown', handleEscapeKey);
     };
   }, [emojiPickerRef, emojiPickerButtonRef, setShowEmojiPicker]);
 
