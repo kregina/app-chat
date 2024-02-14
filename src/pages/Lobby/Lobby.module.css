@@ -49,4 +49,9 @@
       text-overflow: ellipsis;
     }
   }
+
+  .content {
+    max-height: 80dvh;
+    overflow-y: auto;
+  }
 }

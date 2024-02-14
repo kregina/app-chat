@@ -43,7 +43,7 @@ const Lobby: FC = () => {
 
       <SideBar title="Users">
         <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-        <div data-testid="users-list-container">
+        <div data-testid="users-list-container" className={styles.content}>
           {isMobile ? (
             <UsersList users={users} />
           ) : (
