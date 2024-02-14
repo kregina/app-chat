@@ -17,7 +17,6 @@ export const Button: FC<ButtonProps> = (props: ButtonProps) => {
   return (
     <button
       data-testid={`button-${id}`}
-      data-cy={`button-${id}`}
       className={`${styles.button} ${className ? styles[className] : ''}`}
       disabled={!isEnabled} onClick={onClick}
       type={type}

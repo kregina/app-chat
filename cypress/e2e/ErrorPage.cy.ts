@@ -6,7 +6,7 @@ describe('ErrorPage', () => {
   });
 
   it('Should go to the home page', () => {
-    cy.get('[data-cy=go-home]').click();
+    cy.get('[data-testid=button-go-home]').click();
     cy.url().should('eq', 'http://localhost:3000/app-chat');
   });
 });

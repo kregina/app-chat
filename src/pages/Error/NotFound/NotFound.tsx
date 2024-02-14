@@ -23,7 +23,6 @@ export const NotFound = () => {
       <Button
         onClick={() => navigate(PATHS.HOME)}
         id="go-home"
-        data-cy="go-home"
         data-tooltip-id="go-home-tooltip"
         data-tooltip-content="Go back to the home page"
         data-tooltip-place="right"

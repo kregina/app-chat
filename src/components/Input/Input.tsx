@@ -24,7 +24,7 @@ export const Input: FC<InputProps> = (props) => {
         onChange={(e) => onValueChange(e.target.value)}
         autoComplete="off"
         value={value}
-        data-cy={`${id}-input`}
+        data-testid={`${id}-input`}
         placeholder={placeholder}
       />
       {withValidation && <small>{message}</small>}
