@@ -64,6 +64,7 @@ export const Footer = () => {
         <span
           className={styles.emojiButton}
           onClick={toggleEmojiPicker}
+          data-testid="emoji-button"
         >
           {showEmojiPicker && (
             <Picker
